@@ -1,0 +1,51 @@
+@import url(../src/assets/cssFonts/fontiran.css);
+
+:root {
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  /* line-height: 1.5;
+  font-weight: 400; */
+
+  --background-side: #ffffff;
+  --color-primary: #282828;
+  --color-border: #000000; /* opacity: 50% */
+  --color-green-primary: #28a745;
+  --color-green-secondary: #10411b;
+  --color-green-light: #d8ffe1;
+  --color-price: #009eca;
+  --color-logout: #d40000;
+  --color-badge-yellow: #d1b900;
+  --backgroundColor-detailsPage: #f3f3f3;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: IRANSans !important;
+  /* direction: rtl; */
+  background-color: var(--background-side);
+  /* color: var(--color-text); */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+button {
+  font-family: IRANSans !important;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}

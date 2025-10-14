@@ -1,0 +1,114 @@
+.container {
+  padding: 10px 15px;
+}
+
+.all {
+  max-width: 1280px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  color: var(--color-primary);
+}
+
+.navList {
+  display: none;
+  gap: 60px;
+}
+.navList div {
+  background-color: red;
+  display: flex;
+}
+.navList img {
+  width: 146px;
+  height: 44px;
+}
+
+.navList ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.6rem;
+}
+.navList ul li {
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+.navList ul li:hover {
+  color: var(--color-green-primary);
+}
+
+.hamburgerLogo {
+  display: block;
+}
+
+.hamburgerLogo img {
+  width: 24px;
+  height: 20px;
+}
+
+.login {
+  cursor: pointer;
+}
+
+.logoLogin img {
+  width: 40px;
+  height: 40px;
+}
+
+.user {
+  display: none;
+}
+
+.user .signIn {
+  display: flex;
+  gap: 3px;
+  padding: 5px 10px;
+  font-size: 1.5rem;
+  border: 2px solid var(--color-green-primary);
+  border-radius: 8px;
+  color: var(--color-green-primary);
+}
+.signIn span {
+  display: flex;
+  align-items: center;
+}
+.signIn span img {
+  width: 16px;
+  height: 16px;
+}
+
+.signIn div {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    border-bottom: 3px solid #00000012;
+  }
+  .navList {
+    display: flex;
+  }
+
+  .hamburgerLogo {
+    display: none;
+  }
+  .user {
+    display: flex;
+  }
+  .logoLogin {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navList ul {
+    gap: 40px;
+  }
+}

@@ -1,0 +1,130 @@
+.container {
+  /* padding: 10px 15px; */
+}
+.container > :last-child {
+  margin-top: 20px;
+  padding: 10px 15px;
+}
+.container > :last-child p {
+  max-width: 1280px;
+  border-top: 3px solid #00000012;
+  padding-top: 10px;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  text-align: center;
+  margin: auto;
+  padding: 10px 15px;
+}
+.all {
+  padding: 10px 15px;
+  /* display: flex; */
+  flex-direction: column;
+  max-width: 1280px;
+  margin: auto;
+  gap: 40px;
+  /* border-top: 3px dashed #00000012; */
+}
+
+.bottomFooter {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 30px;
+}
+
+.links {
+  display: flex;
+  flex: 1;
+  gap: 40px;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+}
+
+.links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.links ul li:first-child {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.links ul li {
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+.links ul li:hover {
+  color: var(--color-green-primary);
+}
+
+.logos {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-primary);
+  gap: 20px;
+}
+
+.logo {
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+}
+
+.phoneNumber {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.phoneNumber img {
+  width: 146px;
+  height: 44px;
+}
+
+.phoneNumber span {
+  display: flex;
+  gap: 3px;
+}
+
+@media (min-width: 768px) {
+  .container > :last-child {
+    border-top: 3px solid #00000012;
+  }
+  .container > :last-child p {
+    border: none;
+  }
+
+  .bottomFooter {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .footerDetails img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .footerDetails {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .links {
+    justify-content: start;
+    gap: 40px;
+  }
+  .logos {
+    flex-direction: column-reverse;
+  }
+  .logo img {
+    width: 68px;
+    height: 68px;
+  }
+}
