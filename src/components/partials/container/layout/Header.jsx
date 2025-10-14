@@ -1,7 +1,15 @@
+import { useState } from 'react'
 import Image from 'next/image'
+
+import ModalContainer from '../ModalContainer'
+import AuthForm from '../../../templates/authForm/authForm'
+
 import styles from './Header.module.css'
 
 function Header() {
+
+    const [isModal, setIsModal] = useState(false)
+
     return (
         <div className={styles.container}>
             <div className={styles.all}>
@@ -25,7 +33,7 @@ function Header() {
                 </div>
 
                 <div className={styles.login}>
-                    <div className={styles.user}>
+                    <div className={styles.user} onClick={() => setIsModal(prev => !prev)}>
                         <div className={styles.signIn}>
                             <span>
                                 <Image src="/images/profile.webp" width={100} height={100} alt="profile" />
@@ -39,11 +47,16 @@ function Header() {
                             </div> */}
                         </div>
                     </div>
-                    <div className={styles.logoLogin}>
+                    <div className={styles.logoLogin} onClick={() => setIsModal(prev => !prev)} >
                         <Image src="/images/signinLogo.webp" width={100} height={100} alt="profile" />
                     </div>
                 </div>
             </div>
+            {isModal &&
+                <ModalContainer setIsModal={setIsModal}>
+                    <AuthForm setIsModal={setIsModal} />
+                </ModalContainer>
+            }
         </div>
     )
 }

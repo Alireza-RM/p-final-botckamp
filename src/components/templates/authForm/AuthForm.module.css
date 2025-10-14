@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+}
+
+/* .closeButton {
+  text-align: end;
+}
+.backButton {
+  text-align: end;
+  padding: 5px;
+} */
+
+/* @media (min-width:500px){
+  .container{
+    padding: 10px 20px;
+  }
+} */
