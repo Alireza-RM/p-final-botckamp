@@ -20,7 +20,6 @@
   gap: 60px;
 }
 .navList div {
-  background-color: red;
   display: flex;
 }
 .navList img {

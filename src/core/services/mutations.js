@@ -1,5 +1,4 @@
-import { useMutation } from "react-query";
-
+import { useMutation } from "@tanstack/react-query";
 import api from "../config/api";
 import { setCookie } from "../utils/cookie";
 
