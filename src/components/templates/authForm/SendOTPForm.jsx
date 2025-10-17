@@ -43,7 +43,6 @@ function SendOTPForm({ mobile, setMobile, step, setStep, setIsModal }) {
     return (
         <>
             <div className={styles.closeButton} onClick={() => setIsModal(prev => !prev)}>
-                {/* <img src="./images/closeBtn.png" alt="" /> */}
                 <Image src="/images/closeBtn.png" width={100} height={100} alt="close-button" />
             </div>
             <div className={styles.title}>

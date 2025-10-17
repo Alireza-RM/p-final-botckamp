@@ -8,3 +8,5 @@ export const useGetUserData = () => {
 
   return useQuery({ queryFn, queryKey });
 };
+
+

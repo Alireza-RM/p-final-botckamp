@@ -1,0 +1,343 @@
+.container {
+  /* padding: 10px 15px; */
+}
+.all {
+  padding: 10px 15px;
+  max-width: 1280px;
+  margin: auto;
+}
+
+.landing img {
+  /* position: absolute; */
+  /* top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0; */
+  width: 100%;
+  height: auto;
+  /* object-fit: cover; */
+}
+
+.title {
+  /* background-color: aquamarine; */
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.title span {
+  color: var(--color-green-primary);
+}
+
+.searchBox {
+  margin: 60px 0;
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 20px;
+  column-gap: 10px;
+  text-align: center;
+  color: #0000009b;
+}
+.searchBox img {
+  width: 20px;
+  height: 20px;
+}
+
+.beginning {
+  position: relative;
+  border: 2px solid #00000012;
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.6rem;
+  gap: 5px;
+}
+.destination {
+  position: relative;
+  border: 2px solid #00000012;
+  border-radius: 12px;
+  padding: 8px;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: start; */
+  gap: 5px;
+  font-size: 1.6rem;
+}
+
+.date {
+  position: relative;
+  grid-column: 1/3;
+  border: 2px solid #00000012;
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.6rem;
+  gap: 5px;
+  z-index: 20;
+}
+
+.beginning .div,
+.destination .div,
+.date .div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  cursor: pointer;
+}
+.button {
+  grid-column: 1/3;
+  color: var(--background-side);
+  background-color: var(--color-green-primary);
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 16px;
+  padding: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+.button button {
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #1f6f31;
+}
+
+.button button {
+  background: none;
+  border: none;
+  font-size: inherit;
+  color: inherit;
+}
+
+.titleTour {
+  margin: 20px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0000009b;
+}
+
+.cards {
+  display: grid;
+  /* grid-template-columns: auto; */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #00000012;
+  border-radius: 10px;
+  margin: 60px 0;
+}
+
+.character {
+  display: flex;
+  position: relative;
+  border-radius: 10px;
+  flex: 1;
+  background-color: var(--color-green-primary);
+  padding: 30px 20px;
+  height: 500px;
+}
+
+.character .text {
+  flex: 1;
+  color: var(--background-side);
+  font-weight: 700;
+}
+
+.character .img {
+  position: absolute;
+  bottom: -6px;
+  left: 10px;
+}
+.character .img img {
+  width: 195px;
+  height: 158px;
+}
+
+.text :first-child {
+  font-size: 2.2rem;
+  line-height: 2;
+  color: inherit;
+}
+
+.text :last-child {
+  font-size: 1.4rem;
+}
+
+.text p span {
+  font-size: inherit !important;
+  color: var(--color-green-secondary) !important;
+}
+
+.phoneNumber {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.phoneNumber div {
+  display: flex;
+  /* align-items: center; */
+  gap: 5px;
+}
+
+.phoneNumber p {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.phoneNumber div img {
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+}
+
+.phoneNumber button {
+  background: none;
+  background-color: var(--color-green-secondary);
+  color: var(--background-side);
+  border-radius: 9px;
+  font-size: 1.4rem;
+  padding: 8px 30px;
+}
+
+.footerDetails {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px dashed #00000012;
+  row-gap: 50px;
+  column-gap: 20px;
+  padding: 20px 0;
+}
+
+.footerDetails img {
+  width: 70px;
+  height: 70px;
+}
+
+.footerDetails div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footerDetails div div {
+  /* display: flex; */
+  /* justify-content: start; */
+  flex-direction: column;
+  align-items: start;
+}
+
+.footerDetails div div :first-child {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.footerDetails div div :last-child {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 1.1rem;
+  }
+  .searchBox {
+    grid-template-columns: auto auto auto auto;
+    border: 2px solid #00000012;
+    border-radius: 20px;
+    padding: 8px;
+  }
+
+  .beginning {
+    justify-content: start;
+    border: none;
+  }
+  .destination {
+    border: none;
+    border-right: 2px solid #00000012;
+    border-radius: 0;
+    justify-content: start;
+  }
+  .date {
+    border: none;
+    border-right: 2px solid #00000012;
+    border-radius: 0;
+    grid-column: 3/4;
+    justify-content: start;
+  }
+  .button {
+    grid-column: 4/5;
+    margin-top: 0;
+  }
+
+  .titleTour {
+    font-size: 1.8rem;
+  }
+  .info {
+    flex-direction: row;
+  }
+  .phoneNumber {
+    flex-direction: column;
+    padding: 40px;
+  }
+  .character {
+    height: auto;
+  }
+  .text :first-child {
+    font-size: 2.8rem;
+  }
+
+  .text :last-child {
+    font-size: 1.8rem;
+  }
+  .footerDetails img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .footerDetails {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 1.4rem;
+  }
+  .beginning {
+    font-size: 1.8rem;
+  }
+  .destination {
+    font-size: 1.8rem;
+  }
+  .date {
+    font-size: 1.8rem;
+  }
+  .character .img {
+    left: 50px;
+  }
+  .footerDetails div div :first-child {
+    font-size: 1.8rem;
+  }
+
+  .footerDetails div div :last-child {
+    font-size: 1.5rem;
+  }
+}

@@ -5,6 +5,7 @@ import OTPInput from 'react-otp-input';
 import { useCheckOtp } from '../../../core/services/mutations';
 
 import styles from './CheckOTPForm.module.css'
+import Image from 'next/image';
 
 function CheckOTPForm({ setStep, mobile, setIsModal }) {
 
@@ -22,7 +23,6 @@ function CheckOTPForm({ setStep, mobile, setIsModal }) {
             { mobile, code },
             {
                 onSuccess: (data) => {
-                    console.log("first")
                     setIsModal(false);
                     toast.success("ورود به حساب کاربری");
                 },
@@ -39,7 +39,7 @@ function CheckOTPForm({ setStep, mobile, setIsModal }) {
     return (
         <>
             <div className={styles.backButton} onClick={(e) => setStep(1)}  >
-                <img src="./images/back.png" alt="" />
+                <Image src="/images/back.png" width={100} height={100} alt="backLogo" />
             </div>
             <div className={styles.title}>
                 <p>کد تایید را وارد کنید.</p>

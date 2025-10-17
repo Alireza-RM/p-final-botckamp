@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Image from 'next/image'
 
 import ModalContainer from '../ModalContainer'
@@ -7,10 +7,14 @@ import AuthForm from '../../../templates/authForm/AuthForm'
 import styles from './Header.module.css'
 import { useGetUserData } from '../../../../core/services/queries'
 import Link from 'next/link'
+import DropDownMenu from '../DropDownMenu'
 
 function Header() {
 
     const [isModal, setIsModal] = useState(false)
+    const [open, setOpen] = useState(false);
+    const userMenuRef = useRef(null);
+
 
     const { data, isPending } = useGetUserData();
     const { data: userData } = data || {};
@@ -44,11 +48,12 @@ function Header() {
                         <div className={styles.signIn}>
                             {
                                 userData ?
-                                    <div>
+                                    <div onClick={() => setOpen(p => !p)} style={{position:"relative"}}>
                                         <p>{userData.mobile}</p>
                                         <span>
                                             <Image src="/images/arrow-down.webp" width={100} height={100} alt="arrow-down" />
                                         </span>
+                                        <DropDownMenu open={open} setOpen={setOpen} ref={userMenuRef} />
                                     </div>
                                     :
                                     <div onClick={() => setIsModal(prev => !prev)}>
@@ -61,8 +66,19 @@ function Header() {
                         </div>
                     </div>
 
-                    <div className={styles.logoLogin} onClick={() => setIsModal(prev => !prev)} >
-                        <Image src="/images/signinLogo.webp" width={100} height={100} alt="profile" />
+                    <div className={styles.logoLogin}  >
+                        {
+                            userData ?
+                                <div className={styles.signInSm}>
+                                    <p>{userData.mobile}</p>
+                                    <span>
+                                        <Image src="/images/arrow-down.webp" width={100} height={100} alt="arrow-down" />
+                                    </span>
+                                </div>
+                                :
+                                <Image src="/images/signinLogo.webp" width={100} height={100} alt="profile"
+                                    onClick={() => setIsModal(prev => !prev)} />
+                        }
                     </div>
                 </div>
             </div>

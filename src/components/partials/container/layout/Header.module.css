@@ -1,5 +1,6 @@
 .container {
   padding: 10px 15px;
+  border-bottom: 3px solid #00000012;
 }
 
 .all {
@@ -87,10 +88,24 @@
   gap: 3px;
 }
 
+.signInSm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  color: var(--color-green-primary);
+  padding: 10px;
+}
+.signInSm span {
+  display: flex;
+  align-items: center;
+}
+.signInSm span img {
+  width: 16px;
+  height: 16px;
+}
+
 @media (min-width: 768px) {
-  .container {
-    border-bottom: 3px solid #00000012;
-  }
   .navList {
     display: flex;
   }
