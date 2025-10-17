@@ -6,7 +6,9 @@ function Layout({ children }) {
     return (
         <>
             <Header />
+            {/* <div style={{ minHeight: "580px" }}> */}
             {children}
+            {/* </div> */}
             <Footer />
         </>
     )

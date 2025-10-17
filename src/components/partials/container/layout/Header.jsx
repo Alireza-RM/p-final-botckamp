@@ -6,8 +6,10 @@ import AuthForm from '../../../templates/authForm/AuthForm'
 
 import styles from './Header.module.css'
 import { useGetUserData } from '../../../../core/services/queries'
-import Link from 'next/link'
+
 import DropDownMenu from '../DropDownMenu'
+import { e2p } from '../../../../core/utils/replaceNumber'
+import Link from 'next/link'
 
 function Header() {
 
@@ -31,7 +33,9 @@ function Header() {
                             <Image src="/images/Torino.webp" width={100} height={100} alt="torino-logo" />
                         </div>
                         <ul>
-                            <li>صفحه اصلی</li>
+                            <li>
+                                <Link href="/">صفحه اصلی</Link>
+                            </li>
                             <li>خدمات گردشگری</li>
                             <li>درباره ما</li>
                             <li>تماس با ما</li>
@@ -48,8 +52,8 @@ function Header() {
                         <div className={styles.signIn}>
                             {
                                 userData ?
-                                    <div onClick={() => setOpen(p => !p)} style={{position:"relative"}}>
-                                        <p>{userData.mobile}</p>
+                                    <div onClick={() => setOpen(p => !p)} style={{ position: "relative" }}>
+                                        <p>{e2p(userData.mobile)}</p>
                                         <span>
                                             <Image src="/images/arrow-down.webp" width={100} height={100} alt="arrow-down" />
                                         </span>
@@ -70,7 +74,7 @@ function Header() {
                         {
                             userData ?
                                 <div className={styles.signInSm}>
-                                    <p>{userData.mobile}</p>
+                                    <p>{e2p(userData.mobile)}</p>
                                     <span>
                                         <Image src="/images/arrow-down.webp" width={100} height={100} alt="arrow-down" />
                                     </span>

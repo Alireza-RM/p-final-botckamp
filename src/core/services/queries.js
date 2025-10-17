@@ -9,4 +9,9 @@ export const useGetUserData = () => {
   return useQuery({ queryFn, queryKey });
 };
 
+export const useTourId = (id) => {
+  const queryFn = () => api.get(`/tour/${id}`);
+  const queryKey = ["oneTour", id];
 
+  return useQuery({ queryFn, queryKey });
+};

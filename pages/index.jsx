@@ -3,7 +3,6 @@ import HomePage from "../src/components/templates/HomePage";
 import api from "../src/core/config/api";
 
 export default function Home({ data }) {
-  console.log(data)
   return <div>
     <HomePage data={data} />
   </div>;
