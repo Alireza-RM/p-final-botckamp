@@ -1,39 +1,36 @@
-import { useState } from 'react';
+import Image from 'next/image';
 import toast from 'react-hot-toast';
 import OTPInput from 'react-otp-input';
+import { Controller } from "react-hook-form";
 
 import { useCheckOtp } from '../../../core/services/mutations';
+import { useOtpForm } from '../../../core/hooks/yupForm/useOtpForm';
 
 import styles from './CheckOTPForm.module.css'
-import Image from 'next/image';
 
-function CheckOTPForm({ setStep, mobile, setIsModal }) {
-
-    const [code, setCode] = useState("");
+function CheckOTPForm({ watch, setStep, setIsModal }) {
 
     const { isPending, mutate } = useCheckOtp();
 
-
-    const submitHandler = (event) => {
-        event.preventDefault();
+    const { control, handleSubmit, errors } = useOtpForm();
+    
+    const submitHandler = ({ code }) => {
 
         if (isPending) return;
 
         mutate(
-            { mobile, code },
+            { mobile: watch("mobile"), code },
             {
                 onSuccess: (data) => {
                     setIsModal(false);
                     toast.success("ورود به حساب کاربری");
                 },
                 onError: (error) => {
-                    console.log(error);
+                    toast.error(error.message);
                 },
             }
         );
-
-        console.log(code);
-    };
+    }
 
 
     return (
@@ -44,31 +41,44 @@ function CheckOTPForm({ setStep, mobile, setIsModal }) {
             <div className={styles.title}>
                 <p>کد تایید را وارد کنید.</p>
             </div>
-            <form id="form" onSubmit={submitHandler}>
+            <form id="form" onSubmit={handleSubmit(submitHandler)}>
                 <div className={styles.form}>
                     <p>
-                        کد تایید به شماره 09224526847 ارسال شد
+                        کد تایید به شماره {watch("mobile")} ارسال شد
                     </p>
-                    <OTPInput
-                        containerStyle={{ padding: "0", display: "flex", flexDirection: "row-reverse", justifyContent: "center", gap: "5px" }}
-                        inputStyle={styles.otpInput}
-                        value={code}
-                        onChange={setCode}
-                        numInputs={6}
-                        renderInput={(props) =>
-                            <input
-                                {...props}
-                                style={{
-                                    padding: "0",
-                                    width: "35px ",
-                                    height: "45px ",
-                                    maxWidth: "37px",
-                                    maxHeight: "35px"
-                                }}
+
+                    <Controller
+                        name="code"
+                        control={control}
+                        render={({ field }) => (
+                            <OTPInput
+                                value={field.value}
+                                onChange={field.onChange}
+                                numInputs={6}
+                                containerStyle={{ padding: "0", display: "flex", flexDirection: "row-reverse", justifyContent: "center", gap: "5px" }}
+                                inputStyle={styles.otpInput}
+                                renderInput={(props) =>
+                                    <input
+                                        {...props}
+                                        style={{
+                                            padding: "0",
+                                            width: "35px ",
+                                            height: "45px ",
+                                            maxWidth: "37px",
+                                            maxHeight: "35px",
+                                        }}
+                                    />
+                                }
                             />
-                        }
+                        )}
                     />
                     <p>1:25 تا ارسال مجدد کد</p>
+                    {
+                        <p className={styles.error} style={{ visibility: `${errors.code && errors ? "visible" : null}` }}>
+                            {errors.code?.message} &nbsp;
+                        </p>
+                    }
+
                 </div>
                 <div className={styles.button}>
                     <button type="submit">ورود به تورینو</button>

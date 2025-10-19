@@ -8,6 +8,7 @@
   top: 0;
   left: 0;
   opacity: 0.8;
+  z-index: 100;
 }
 .modalCenter {
   background-color: #ffffff;
@@ -19,7 +20,7 @@
   height: 362px;
   max-width: 561px;
   max-height: 362px;
-  z-index: 30;
+  z-index: 100;
   border-radius: 20px;
   overflow: hidden;
 }

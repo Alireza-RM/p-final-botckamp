@@ -11,7 +11,7 @@ function tour() {
   if (isPending) return <h1 style={{minHeight:"580px"}}>Loading ...</h1>
   if (!isPending && !data) return <h1>Error</h1>
 
-  console.log(data)
+  // console.log(data)
 
   return (
     <>

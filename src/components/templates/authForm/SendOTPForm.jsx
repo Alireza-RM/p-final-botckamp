@@ -2,26 +2,17 @@ import Image from 'next/image'
 import toast from 'react-hot-toast'
 
 import { useSendOtp } from '../../../core/services/mutations'
-import { isValidMobile } from '../../../core/utils/validation'
 
 import styles from './SendOTPForm.module.css'
-import { useState } from 'react'
 
-function SendOTPForm({ mobile, setMobile, step, setStep, setIsModal }) {
-
-    const [error, setError] = useState("");
+function SendOTPForm({ register, handleSubmit, errors, setStep, setIsModal }) {
 
     const { mutate, isPending } = useSendOtp()
 
 
-    const submitHandler = async (e) => {
-        e.preventDefault()
+    const submitHandler = ({ mobile }) => {
 
         if (isPending) return;
-
-        if (!isValidMobile(mobile)) return setError("شماره معتبر وارد کنید");
-
-
 
         mutate(
             { mobile },
@@ -37,8 +28,9 @@ function SendOTPForm({ mobile, setMobile, step, setStep, setIsModal }) {
                 },
             }
         );
-
     }
+
+
 
     return (
         <>
@@ -48,13 +40,16 @@ function SendOTPForm({ mobile, setMobile, step, setStep, setIsModal }) {
             <div className={styles.title}>
                 <p>ورود به تورینو</p>
             </div>
-            <form id="form" onSubmit={submitHandler}>
+
+            <form id="form" onSubmit={handleSubmit(submitHandler)}>
                 <div className={styles.form}>
                     <label htmlFor="phoneNumber">
                         شماره موبایل خود را وارد کنید
                     </label>
-                    <input value={mobile} onChange={(e) => setMobile(e.target.value)} type="text" id="phoneNumber" placeholder="تلفن همراه" />
-                    <p className={styles.error} style={{ visibility: `${error ? "visible" : null}` }}>شماره وارد شده اشتباه است !</p>
+                    <input {...register("mobile")} id="phoneNumber" placeholder="تلفن همراه" />
+                    <p className={styles.error} style={{ visibility: `${errors ? "visible" : null}` }}>
+                        {errors.mobile?.message} &nbsp;
+                    </p>
                 </div>
                 <div className={styles.button}>
                     <button type="submit">ارسال کد تایید</button>

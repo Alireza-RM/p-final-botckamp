@@ -8,7 +8,7 @@ function Card({ data }) {
     const router = useRouter()
 
     const { id, image, title, price, options } = data
-    console.log(data)
+    // console.log(data)
     return (
         <div className={styles.card} onClick={() => router.push(`/tour/${id}`)}>
             <div className={styles.image}>
