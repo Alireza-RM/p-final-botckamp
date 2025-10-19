@@ -2,6 +2,7 @@
 import { forwardRef, useEffect } from "react";
 import styles from './DropDownMenu.module.css'
 import Image from "next/image";
+import Link from "next/link";
 
 const DropDownMenu = forwardRef(({ open: openState, setOpen }, ref) => {
 
@@ -29,7 +30,9 @@ const DropDownMenu = forwardRef(({ open: openState, setOpen }, ref) => {
                         <Image src="/images/profile (3).png" width={100} height={100} alt="profile-logo" />
 
                     </div>
-                    <p>اطلاعات حساب کاربری</p>
+                    <Link href="/dashboard/profile">
+                        <p>اطلاعات حساب کاربری</p>
+                    </Link>
                 </div>
                 <div href="#" className={`${styles.menuItem} ${styles.logout}`}>
                     <div>

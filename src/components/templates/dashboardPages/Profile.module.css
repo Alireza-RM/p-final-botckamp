@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.oneLineDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.oneLineDetail div {
+  font-size: 1.4rem;
+  color: #0000008b;
+  text-align: start !important;
+  flex: 1;
+}
+.oneLineDetail :nth-child(1) {
+  flex: 2;
+}
+
+.oneLineDetail :last-child {
+  color: var(--color-primary);
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .section {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .oneLineDetail :nth-child(1) {
+    flex: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .oneLineDetail div {
+    flex: 2;
+  }
+}

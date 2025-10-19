@@ -45,8 +45,8 @@ function DetailsTour({ data: { id, title, image, options, origin, destination,
           </div>
 
           <div className={styles.allDetails}>
-            <div>
-              <div className={styles.logoName}>
+            <div style={{ border: "none" }}>
+              <div className={styles.logoName} >
                 <img src="/images/logosDetailsPage/routing-2.png" alt="logo" />
                 <p>مبدا</p>
               </div>

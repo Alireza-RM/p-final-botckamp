@@ -1,0 +1,51 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 2px solid #00000020;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.title :first-child {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.title div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.title img {
+  width: 16px;
+  height: 16px;
+}
+
+.title p {
+  font-size: 1.3rem;
+}
+
+.editButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.editButton img {
+  width: 16px;
+  height: 16px;
+}
+.editButton p {
+  color: var(--color-price) !important;
+}
+
+

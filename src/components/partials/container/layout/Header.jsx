@@ -57,7 +57,7 @@ function Header() {
                                         <span>
                                             <Image src="/images/arrow-down.webp" width={100} height={100} alt="arrow-down" />
                                         </span>
-                                        <DropDownMenu open={open} setOpen={setOpen} ref={userMenuRef} />
+                                            <DropDownMenu open={open} setOpen={setOpen} ref={userMenuRef} />
                                     </div>
                                     :
                                     <div onClick={() => setIsModal(prev => !prev)}>

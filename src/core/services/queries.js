@@ -6,7 +6,7 @@ export const useGetUserData = () => {
   const queryFn = () => api.get("/user/profile");
   const queryKey = ["user-data"];
 
-  return useQuery({ queryFn, queryKey });
+  return useQuery({ queryFn, queryKey, retry: false });
 };
 
 export const useTourId = (id) => {
