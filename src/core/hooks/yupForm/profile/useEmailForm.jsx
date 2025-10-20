@@ -5,22 +5,22 @@ import * as yup from "yup";
 
 
 const schema = yup.object({
-    mobile: yup
+    email: yup
         .string()
-        .matches(/^09\d{9}$/, "شماره موبایل معتبر نیست")
-        .required(),
+        .email("ایمیل معتبر نیست")
+    // .required("ایمیل الزامی است"),
 });
 
 
-export const usePhoneForm = () => {
+export const useEmailForm = () => {
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
+        reset,
     } = useForm({
         resolver: yupResolver(schema),
     });
 
-    return { register, handleSubmit, errors, watch }
+    return { register, handleSubmit, errors, reset }
 }

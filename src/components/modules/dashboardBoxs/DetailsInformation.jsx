@@ -1,8 +1,10 @@
-import { Children, useState } from 'react'
-import styles from './DetailsInformation.module.css'
+import { useState } from 'react'
 import InputBox from './InputBox'
 
-function DetailsInformation({ title, children }) {
+import styles from './DetailsInformation.module.css'
+
+
+function DetailsInformation({ title, formInputDescription, register, handleSubmit, errors, children }) {
     const [open, setOpen] = useState(true)
 
     return (
@@ -20,7 +22,7 @@ function DetailsInformation({ title, children }) {
                         {children}
                     </>
                     :
-                    <InputBox setOpen={setOpen} btn />
+                    <InputBox formInputDescription={formInputDescription} register={register} handleSubmit={handleSubmit} errors={errors} setOpen={setOpen} btn />
             }
 
         </div>

@@ -17,7 +17,7 @@ export const useOtpForm = () => {
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: { code: "" },
-    mode: "onTouched", // یا 'onSubmit' بسته به نیاز
+    mode: "onTouched",
   });
 
   return { control, handleSubmit, errors };
