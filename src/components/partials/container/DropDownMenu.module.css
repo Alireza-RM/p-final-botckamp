@@ -34,6 +34,8 @@
   transform: scale(0.95);
   pointer-events: none;
   transition: opacity 0.2s ease 0.1s, transform 0.2s ease 0.1s;
+  max-height: 226px;
+  overflow-y: scroll;
 }
 
 .menuDropdown.open {

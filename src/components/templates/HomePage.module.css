@@ -315,6 +315,9 @@
     flex-direction: row;
     justify-content: space-between;
   }
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }
 
 @media (min-width: 1024px) {

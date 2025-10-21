@@ -1,0 +1,134 @@
+.searchBox {
+  margin: 60px 0;
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 20px;
+  column-gap: 10px;
+  text-align: center;
+  color: #0000009b;
+}
+.searchBox img {
+  width: 20px;
+  height: 20px;
+}
+
+.beginning {
+  position: relative;
+  border: 2px solid #00000012;
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.6rem;
+  gap: 5px;
+}
+.destination {
+  position: relative;
+  border: 2px solid #00000012;
+  border-radius: 12px;
+  padding: 8px;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: start; */
+  gap: 5px;
+  font-size: 1.6rem;
+}
+
+.date {
+  position: relative;
+  grid-column: 1/3;
+  border: 2px solid #00000012;
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.6rem;
+  gap: 5px;
+  z-index: 10;
+  /* background-color: red; */
+}
+
+.beginning .div,
+.destination .div,
+.date .div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.button {
+  grid-column: 1/3;
+  color: var(--background-side);
+  background-color: var(--color-green-primary);
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 16px;
+  padding: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  border: none;
+}
+
+.button:hover {
+  background-color: #1f6f31;
+}
+
+.button p {
+  background: none;
+  border: none;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 1.1rem;
+  }
+  .searchBox {
+    grid-template-columns: auto auto auto auto;
+    border: 2px solid #00000012;
+    border-radius: 20px;
+    padding: 8px;
+  }
+
+  .beginning {
+    justify-content: start;
+    border: none;
+  }
+  .destination {
+    border: none;
+    border-right: 2px solid #00000012;
+    border-radius: 0;
+    justify-content: start;
+  }
+  .date {
+    border: none;
+    border-right: 2px solid #00000012;
+    border-radius: 0;
+    grid-column: 3/4;
+    justify-content: start;
+  }
+  .button {
+    grid-column: 4/5;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .beginning {
+    font-size: 1.8rem;
+  }
+  .destination {
+    font-size: 1.8rem;
+  }
+  .date {
+    font-size: 1.8rem;
+  }
+}

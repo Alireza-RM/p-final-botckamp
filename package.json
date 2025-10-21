@@ -14,11 +14,13 @@
     "axios": "^1.12.2",
     "jalaali-js": "^1.2.8",
     "next": "13.1.1",
+    "qs": "^6.14.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.6.0",
     "react-otp-input": "^3.1.1",
-    "yup": "^1.7.1"
+    "yup": "^1.7.1",
+    "zaman": "^2.1.1"
   },
   "devDependencies": {
     "eslint": "8.31.0",

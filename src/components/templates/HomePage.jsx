@@ -4,15 +4,16 @@ import styles from './HomePage.module.css'
 import DropDownMenu from '../partials/container/DropDownMenu';
 import Card from '../modules/Card';
 import Image from 'next/image';
+import SearchForm from '../modules/SearchForm';
 
 function HomePage({ data }) {
 
-    const [openBeginning, setOpenBeginning] = useState(false);
-    const [openDestination, setOpenDestination] = useState(false);
-    const [openDate, setOpenDate] = useState(false);
-    const beginningRef = useRef(null);
-    const destinationRef = useRef(null);
-    const dateRef = useRef(null);
+    // const [openBeginning, setOpenBeginning] = useState(false);
+    // const [openDestination, setOpenDestination] = useState(false);
+    // const [openDate, setOpenDate] = useState(false);
+    // const beginningRef = useRef(null);
+    // const destinationRef = useRef(null);
+    // const dateRef = useRef(null);
 
     return (
         <div className={styles.container}>
@@ -29,7 +30,12 @@ function HomePage({ data }) {
                     <h1><span>تورینو</span> برگزار کننده بهترین تور های داخلی و خارجی</h1>
                 </div>
                 {/* //searchBox */}
-                <div className={styles.searchBox}>
+
+                <SearchForm />
+                {/* <div className={styles.searchBox}>
+
+
+
                     <div className={styles.beginning} >
                         <div className={styles.div} onClick={() => setOpenBeginning(p => !p)}>
                             <span>
@@ -37,8 +43,24 @@ function HomePage({ data }) {
                             </span>
                             <p>مبدا</p>
                         </div>
-                        <DropDownMenu open={openBeginning} setOpen={setOpenBeginning} ref={beginningRef} />
+                        <DropDownMenu open={openBeginning} setOpen={setOpenBeginning} ref={beginningRef} >
+                            <div style={{ backgroundColor: "red", display: "flex", padding: "10px" }}>
+                                <Image src="/images/location.png" width={100} height={100} alt="" />
+                                <p>مادرید</p>
+                            </div>
+                            <div style={{ backgroundColor: "red", display: "flex", padding: "10px" }}>
+                                <Image src="/images/location.png" width={100} height={100} alt="" />
+                                <p>مادرید</p>
+                            </div>
+                        </DropDownMenu>
                     </div>
+
+
+
+
+
+
+
                     <div className={styles.destination} >
                         <div className={styles.div} onClick={() => setOpenDestination(p => !p)}>
                             <span>
@@ -46,8 +68,23 @@ function HomePage({ data }) {
                             </span>
                             <p>مقصد</p>
                         </div>
-                        <DropDownMenu open={openDestination} setOpen={setOpenDestination} ref={destinationRef} />
+                        <DropDownMenu open={openDestination} setOpen={setOpenDestination} ref={destinationRef} >
+                            <div style={{ backgroundColor: "red", display: "flex", padding: "10px" }}>
+                                <Image src="/images/location.png" width={100} height={100} alt="" />
+                                <p>مادرید</p>
+                            </div>
+                            <div style={{ backgroundColor: "red", display: "flex", padding: "10px" }}>
+                                <Image src="/images/location.png" width={100} height={100} alt="" />
+                                <p>مادرید</p>
+                            </div>
+                        </DropDownMenu>
                     </div>
+
+
+
+
+
+
                     <div className={styles.date}>
                         <div className={styles.div} onClick={() => setOpenDate(p => !p)}>
 
@@ -58,10 +95,16 @@ function HomePage({ data }) {
                         </div>
                         <DropDownMenu open={openDate} setOpen={setOpenDate} ref={dateRef} />
                     </div>
+
+
+
+
+
+
                     <div className={styles.button}>
                         <button>جستجو</button>
                     </div>
-                </div>
+                </div> */}
                 <div className={styles.titleTour}>
                     <h2>همه تورها </h2>
                 </div>
