@@ -21,3 +21,9 @@ export const useCheckOtp = () => {
 
   return useMutation({ mutationFn, onSuccess });
 };
+
+export const useEditProfile = () => {
+  const mutationFn = (data) => api.put("/user/profile", data);
+
+  return useMutation({ mutationFn });
+};

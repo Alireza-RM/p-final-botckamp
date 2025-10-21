@@ -1,17 +1,43 @@
 import Image from 'next/image'
 import styles from './InputBox.module.css'
+import { useForm, Controller } from "react-hook-form";
+import { DatePicker } from 'zaman';
+import api from '../../../core/config/api';
+import { useEditProfile } from '../../../core/services/mutations';
+import toast from 'react-hot-toast';
+import { useQueryClient } from '@tanstack/react-query';
 
-function InputBox({ formInputDescription, register, handleSubmit, errors, setOpen, btn = false }) {
+
+function InputBox({ data: { mobile }, formInputDescription, register, handleSubmit, errors, control, setOpen, btn = false }) {
+
+    const queryClient = useQueryClient()
+    const { mutate, isPending } = useEditProfile()
+
+    const submitHandler = async (form) => {
+
+        if (isPending) return;
 
 
-    const submitHandler = (data) => {
-        console.log(data)
-        console.log("data")
+        const newData = { mobile, ...form }
+
+        mutate(
+            newData,
+            {
+                onSuccess: (data) => {
+                    console.log(data)
+                    toast.success("پروفایل با موفقیت آپدیت شد");
+                    queryClient.invalidateQueries(["profileUser-data"])
+                    setOpen(p => !p)
+                },
+                onError: (error) => {
+                    toast.error(error.message);
+                },
+            }
+        );
     }
 
     return (
         <form className={styles.box} onSubmit={handleSubmit(submitHandler)}>
-            {/* // <form className={styles.box} onSubmit={submitHandler}> */}
             <div className={styles.title}>
                 <span>
                     <Image src="/images/profile (1).png" width={100} height={100} alt="" />
@@ -20,15 +46,40 @@ function InputBox({ formInputDescription, register, handleSubmit, errors, setOpe
             </div>
 
             {
-                formInputDescription.map(i =>
-                    <input key={i.name} {...register(i.name)} placeholder={i.placeholder} />
-                )
+                formInputDescription.map(i => {
+                    const fieldName =
+                        ["shaba_code", "debitCard_code", "accountIdentifier"].includes(i.name)
+                            ? `payment.${i.name}`
+                            : i.name;
+
+                    if (fieldName === "birthDate") {
+                        return (
+                            // <div  key={i.name}>
+                            <Controller key={i.name}
+                                name="birthDate"
+                                control={control}
+                                render={({ field: { onChange, value } }) => (
+                                    <DatePicker
+                                        value={value}
+                                        onChange={(e) => onChange(e.value)}
+                                        accentColor="#28A745"
+                                    />
+                                )}
+                            />
+                            // </div>
+                        )
+                    }
+
+                    return (
+                        <input
+                            key={i.name}
+                            {...register(fieldName)}
+                            placeholder={i.placeholder}
+                        />
+                    );
+                })
             }
-            {/* <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" /> */}
-            {/* Button */}
+
             {
                 btn &&
                 <div className={styles.buttons}>

@@ -4,7 +4,7 @@ import InputBox from './InputBox'
 import styles from './DetailsInformation.module.css'
 
 
-function DetailsInformation({ title, formInputDescription, register, handleSubmit, errors, children }) {
+function DetailsInformation({ data, title, formInputDescription, register, handleSubmit, errors, control, children }) {
     const [open, setOpen] = useState(true)
 
     return (
@@ -22,7 +22,8 @@ function DetailsInformation({ title, formInputDescription, register, handleSubmi
                         {children}
                     </>
                     :
-                    <InputBox formInputDescription={formInputDescription} register={register} handleSubmit={handleSubmit} errors={errors} setOpen={setOpen} btn />
+                    <InputBox data={data} formInputDescription={formInputDescription} register={register} handleSubmit={handleSubmit}
+                        errors={errors} control={control} setOpen={setOpen} btn />
             }
 
         </div>

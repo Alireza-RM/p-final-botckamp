@@ -5,13 +5,17 @@ import * as yup from "yup";
 
 
 const schema = yup.object({
+    // // lastName: yup.string(),
     firstName: yup.string(),
-    // lastName: yup.string(),
-    gender: yup.string().oneOf(["   ", "female"]),
-    birthDate: yup.date(),
     nationalCode: yup
         .string()
-        .matches(/^\d{10}$/, "کد ملی باید ۱۰ رقم باشد")
+        .matches(/^\d{10}$/, "کد ملی باید ۱۰ رقم باشد"),
+    birthDate: yup.date(),
+    gender: yup.string().oneOf(["male", "female"]),
+    // firstName: yup.string(),
+    // gender: yup.string(),
+    // birthDate: yup.date(),
+    // nationalCode: yup.string(),
 });
 
 
@@ -20,10 +24,11 @@ export const usePersonalInformation = () => {
         register,
         handleSubmit,
         formState: { errors },
+        control,
         reset,
     } = useForm({
         resolver: yupResolver(schema),
     });
 
-    return { register, handleSubmit, errors, reset }
+    return { register, handleSubmit, errors, control, reset }
 }
