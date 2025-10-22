@@ -10,10 +10,12 @@ import { useGetUserData } from '../../../../core/services/queries'
 import DropDownMenu from '../DropDownMenu'
 import { e2p } from '../../../../core/utils/replaceNumber'
 import Link from 'next/link'
+import HamburgerMenu from '../../../modules/HamburgerMenu'
 
 function Header() {
 
     const [isModal, setIsModal] = useState(false)
+    const [isHamberOpen, setIsHamberOpen] = useState(false)
     const [open, setOpen] = useState(false);
     const userMenuRef = useRef(null);
 
@@ -42,7 +44,7 @@ function Header() {
                         </ul>
                     </div>
 
-                    <div className={styles.hamburgerLogo}>
+                    <div className={styles.hamburgerLogo} onClick={() => setIsHamberOpen(p => !p)}>
                         <Image src="/images/hbgMenu.webp" width={100} height={100} alt="hamburger-menu" />
                     </div>
                 </div>
@@ -57,7 +59,7 @@ function Header() {
                                         <span>
                                             <Image src="/images/arrow-down.webp" width={100} height={100} alt="arrow-down" />
                                         </span>
-                                            <DropDownMenu open={open} setOpen={setOpen} ref={userMenuRef} />
+                                        <DropDownMenu open={open} setOpen={setOpen} ref={userMenuRef} />
                                     </div>
                                     :
                                     <div onClick={() => setIsModal(prev => !prev)}>
@@ -91,6 +93,7 @@ function Header() {
                     <AuthForm setIsModal={setIsModal} />
                 </ModalContainer>
             }
+            <HamburgerMenu className={styles.hamberMenu} isHamberOpen={isHamberOpen} setIsHamberOpen={setIsHamberOpen} />
         </div>
     )
 }

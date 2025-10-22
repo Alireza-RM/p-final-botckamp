@@ -41,8 +41,14 @@ function SearchForm() {
     useEffect(() => {
         const originId = getQuery("originId");
         const destinationId = getQuery("destinationId");
-        if (originId && destinationId) reset({ originId, destinationId });
-        console.log(originId, destinationId)
+
+        if (originId && destinationId) {
+            reset({ originId, destinationId })
+        } else if (originId) {
+            reset({ originId })
+        } else if (destinationId) {
+            reset({ destinationId })
+        }
     }, []);
 
     const submitHandler = (formData) => {
