@@ -2,9 +2,33 @@ import Image from 'next/image'
 import styles from './DetailsTour.module.css'
 import { e2p, sp } from '../../core/utils/replaceNumber'
 import { convertDateToPersian } from '../../core/utils/convertDate'
+import { useAddBasket } from '../../core/services/mutations'
+import toast from 'react-hot-toast'
+import { useRouter } from 'next/router'
 
 function DetailsTour({ data: { id, title, image, options, origin, destination,
   price, startDate, endDate, availableSeats, insurance } }) {
+
+  const router = useRouter()
+
+  const { mutate, isPending } = useAddBasket()
+
+  const submitHandler = () => {
+    if (isPending) return;
+
+    mutate(
+      id,
+      {
+        onSuccess: (data) => {
+          toast.success(data?.data?.message)
+          router.push("/basket")
+        },
+        onError: (error) => {
+          if (error.message === "Access token required") toast.error("ابتدا وارد حساب کاربریتون شوید")
+        }
+      })
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.all}>
@@ -37,7 +61,7 @@ function DetailsTour({ data: { id, title, image, options, origin, destination,
           {/* //////////// */}
 
           <div className={styles.reserve}>
-            <button>رزرو و خرید</button>
+            <button onClick={() => submitHandler()}>رزرو و خرید</button>
             <p>
               <span>{e2p(sp(price))}</span>
               تومان
@@ -113,7 +137,6 @@ function DetailsTour({ data: { id, title, image, options, origin, destination,
                     insurance ? " بیمه 50 هزار دیناری" : "❌"
                   }
                 </p>
-
               </div>
             </div>
           </div>

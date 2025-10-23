@@ -5,9 +5,8 @@
   left: -1;
   width: 100%;
   /* background-color: aqua; */
-  z-index: 10;
+  z-index: -1;
   transition: z-index 0.2s ease 0.1s;
-
 }
 .container.open {
   z-index: 30;
@@ -67,7 +66,7 @@
   transition: background 0.2s;
   /* background-color: aqua; */
   border-bottom: 1px solid #0000003e;
-}
+} 
 
 .menuItemFixed {
   background-color: #f4f4f4;

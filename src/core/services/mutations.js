@@ -27,3 +27,15 @@ export const useEditProfile = () => {
 
   return useMutation({ mutationFn });
 };
+
+export const useAddBasket = () => {
+  const mutationFn = (id) => api.put(`/basket/${id}`);
+
+  return useMutation({ mutationFn });
+};
+
+export const useSendOrder = () => {
+  const mutationFn = (data) => api.post("/order", data);
+
+  return useMutation({ mutationFn });
+};

@@ -56,7 +56,7 @@ function Profile() {
             <UserInformation data={data?.data} />
 
             <DetailsInformation data={data?.data} title="اطلاعات شخصی" formInputDescription={formInputDescription.slice(0, 4)}
-                register={register} handleSubmit={handleSubmit} errors={errors} control={control} reset={reset}>
+                register={register} handleSubmit={handleSubmit} errors={errors} control={control} reset={reset} >
                 <div className={styles.section}>
                     <div className={styles.oneLineDetail}>
                         <div>نام و نام خانوادگی</div>

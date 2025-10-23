@@ -21,10 +21,7 @@ function Card({ data }) {
                 <p>{options.join(" , ")}</p>
             </div>
             <div className={styles.reserve}>
-                <button onClick={(e) => {
-                    e.stopPropagation();
-                    router.push(`/basket/${id}`)
-                }}>رزرو</button>
+                <button>رزرو</button>
                 <p>
                     <span>{e2p(sp(price))}</span>
                     تومان

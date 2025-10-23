@@ -23,7 +23,7 @@ function DetailsInformation({ data, title, formInputDescription, register, handl
                     </>
                     :
                     <InputBox data={data} formInputDescription={formInputDescription} register={register} handleSubmit={handleSubmit}
-                        errors={errors} control={control} setOpen={setOpen} btn />
+                        errors={errors} control={control} setOpen={setOpen} btn title={title} />
             }
 
         </div>

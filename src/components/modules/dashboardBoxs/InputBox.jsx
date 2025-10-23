@@ -6,9 +6,13 @@ import api from '../../../core/config/api';
 import { useEditProfile } from '../../../core/services/mutations';
 import toast from 'react-hot-toast';
 import { useQueryClient } from '@tanstack/react-query';
+import { convertDateEnToEn } from '../../../core/utils/convertDate';
 
 
-function InputBox({ data: { mobile }, formInputDescription, register, handleSubmit, errors, control, setOpen, btn = false }) {
+function InputBox({ data, formInputDescription, register, handleSubmit,
+    errors, control, setOpen = () => { }, title, btn = false }) {
+
+    const { mobile } = data || {}
 
     const queryClient = useQueryClient()
     const { mutate, isPending } = useEditProfile()
@@ -17,8 +21,15 @@ function InputBox({ data: { mobile }, formInputDescription, register, handleSubm
 
         if (isPending) return;
 
+        console.log("first")
 
-        const newData = { mobile, ...form }
+        let newData = { mobile, ...form }
+        if (newData.birthDate) {
+            newData = {
+                ...newData,
+                birthDate: convertDateEnToEn(newData.birthDate)
+            }
+        }
 
         mutate(
             newData,
@@ -37,12 +48,14 @@ function InputBox({ data: { mobile }, formInputDescription, register, handleSubm
     }
 
     return (
-        <form className={styles.box} onSubmit={handleSubmit(submitHandler)}>
+        <form className={`${styles.box} ${!btn && styles.borderBox}`}
+            onSubmit={handleSubmit(submitHandler)}>
+
             <div className={styles.title}>
                 <span>
                     <Image src="/images/profile (1).png" width={100} height={100} alt="" />
                 </span>
-                <p>مشخصات مسافر</p>
+                <p>{title}</p>
             </div>
 
             {

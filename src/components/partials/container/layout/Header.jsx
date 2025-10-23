@@ -38,9 +38,15 @@ function Header() {
                             <li>
                                 <Link href="/">صفحه اصلی</Link>
                             </li>
-                            <li>خدمات گردشگری</li>
-                            <li>درباره ما</li>
-                            <li>تماس با ما</li>
+                            <li>
+                                <Link href="/tourServices">خدمات گردشگری</Link>
+                            </li>
+                            <li>
+                                <Link href="/about-us">درباره ما</Link>
+                            </li>
+                            <li>
+                                <Link href="/contact-us">تماس با ما</Link>
+                            </li>
                         </ul>
                     </div>
 

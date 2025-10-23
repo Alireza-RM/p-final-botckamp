@@ -23,3 +23,17 @@ export const useProfileUser = () => {
 
   return useQuery({ queryFn, queryKey });
 };
+
+export const useGetBasket = () => {
+  const queryFn = () => api.get(`/basket`);
+  const queryKey = ["userBasket"];
+
+  return useQuery({ queryFn, queryKey, retry: false });
+};
+
+export const useGetUserTours = () => {
+  const queryFn = () => api.get(`/user/tours`);
+  const queryKey = ["userTours"];
+
+  return useQuery({ queryFn, queryKey });
+};

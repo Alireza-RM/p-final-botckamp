@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import styles from './Footer.module.css'
+import Link from 'next/link'
 
 function Footer() {
     return (
@@ -14,8 +15,12 @@ function Footer() {
                         <div className={styles}>
                             <ul>
                                 <li>تورینو</li>
-                                <li>درباره ما</li>
-                                <li>تماس با ما </li>
+                                <li>
+                                    <Link href="/about-us">درباره ما</Link>
+                                </li>
+                                <li>
+                                    <Link href="/contact-us">تماس با ما</Link>
+                                </li>
                                 <li>چرا تورینو</li>
                                 <li>بیمه مسافرتی</li>
                             </ul>

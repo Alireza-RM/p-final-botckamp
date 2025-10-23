@@ -19,7 +19,6 @@ function HamburgerMenu({ isHamberOpen, setIsHamberOpen }) {
         onClick={() => setIsHamberOpen(false)}
       ></div>
 
-      {/* منوی کناری */}
       <div className={`${styles.hamburgerMenu} ${isHamberOpen ? styles.open : ""}`}>
         <button className={styles.closeBtn} onClick={() => setIsHamberOpen(false)}>
           ✕

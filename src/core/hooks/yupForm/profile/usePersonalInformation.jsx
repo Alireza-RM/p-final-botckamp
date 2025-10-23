@@ -26,9 +26,10 @@ export const usePersonalInformation = () => {
         formState: { errors },
         control,
         reset,
+        watch
     } = useForm({
         resolver: yupResolver(schema),
     });
 
-    return { register, handleSubmit, errors, control, reset }
+    return { register, handleSubmit, errors, control, reset, watch }
 }

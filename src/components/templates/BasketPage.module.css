@@ -1,0 +1,89 @@
+.container {
+  /* padding: 10px 15px; */
+  min-height: 580px;
+  padding-top: 10px;
+}
+.all {
+  padding: 10px 15px;
+  max-width: 1280px;
+  margin: auto;
+  display: grid;
+  gap: 30px 15px;
+}
+
+.priceBox {
+  border: 2px solid #00000020;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px dashed #0000006a;
+  padding-bottom: 25px;
+}
+
+.details h2 {
+  font-size: 2.4rem;
+}
+
+.details p {
+  font-size: 1.5rem;
+  color: #0000006a;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0 0 0;
+}
+
+.price div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.2rem;
+}
+
+.price span {
+  font-size: 1.5rem;
+  color: var(--color-price);
+}
+
+.price button {
+  width: 100%;
+  padding: 10px 40px;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: var(--background-side);
+  background-color: var(--color-green-primary);
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.price button:hover {
+  background-color: #1f6f31;
+}
+
+@media (min-width: 768px) {
+  .all {
+    grid-template-columns: 4fr 2fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .all {
+    grid-template-columns: 3fr 1fr;
+  }
+}

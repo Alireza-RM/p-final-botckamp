@@ -32,79 +32,7 @@ function HomePage({ data }) {
                 {/* //searchBox */}
 
                 <SearchForm />
-                {/* <div className={styles.searchBox}>
 
-
-
-                    <div className={styles.beginning} >
-                        <div className={styles.div} onClick={() => setOpenBeginning(p => !p)}>
-                            <span>
-                                <Image src="/images/location.png" width={100} height={100} alt="" />
-                            </span>
-                            <p>مبدا</p>
-                        </div>
-                        <DropDownMenu open={openBeginning} setOpen={setOpenBeginning} ref={beginningRef} >
-                            <div style={{ backgroundColor: "red", display: "flex", padding: "10px" }}>
-                                <Image src="/images/location.png" width={100} height={100} alt="" />
-                                <p>مادرید</p>
-                            </div>
-                            <div style={{ backgroundColor: "red", display: "flex", padding: "10px" }}>
-                                <Image src="/images/location.png" width={100} height={100} alt="" />
-                                <p>مادرید</p>
-                            </div>
-                        </DropDownMenu>
-                    </div>
-
-
-
-
-
-
-
-                    <div className={styles.destination} >
-                        <div className={styles.div} onClick={() => setOpenDestination(p => !p)}>
-                            <span>
-                                <Image src="/images/global-search.png" width={100} height={100} alt="" />
-                            </span>
-                            <p>مقصد</p>
-                        </div>
-                        <DropDownMenu open={openDestination} setOpen={setOpenDestination} ref={destinationRef} >
-                            <div style={{ backgroundColor: "red", display: "flex", padding: "10px" }}>
-                                <Image src="/images/location.png" width={100} height={100} alt="" />
-                                <p>مادرید</p>
-                            </div>
-                            <div style={{ backgroundColor: "red", display: "flex", padding: "10px" }}>
-                                <Image src="/images/location.png" width={100} height={100} alt="" />
-                                <p>مادرید</p>
-                            </div>
-                        </DropDownMenu>
-                    </div>
-
-
-
-
-
-
-                    <div className={styles.date}>
-                        <div className={styles.div} onClick={() => setOpenDate(p => !p)}>
-
-                            <span>
-                                <Image src="/images/calendar.png" width={100} height={100} alt="" />
-                            </span>
-                            <p>تاریخ</p>
-                        </div>
-                        <DropDownMenu open={openDate} setOpen={setOpenDate} ref={dateRef} />
-                    </div>
-
-
-
-
-
-
-                    <div className={styles.button}>
-                        <button>جستجو</button>
-                    </div>
-                </div> */}
                 <div className={styles.titleTour}>
                     <h2>همه تورها </h2>
                 </div>
