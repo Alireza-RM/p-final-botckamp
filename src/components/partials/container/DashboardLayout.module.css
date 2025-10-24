@@ -10,6 +10,11 @@
   display: grid;
   gap: 30px 15px;
 }
+.tableWrapper {
+  overflow-x: auto;
+  min-width: 0;
+  width: 100%;
+}
 
 .navProfile {
   display: flex;

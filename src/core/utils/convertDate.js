@@ -2,16 +2,20 @@ import jalaali from "jalaali-js";
 import { e2p } from "./replaceNumber";
 
 const convertDateToPersian = (nowData) => {
-  const isoDate = nowData;
-  const date = new Date(isoDate);
+  if (!nowData) return "";
 
-  // تبدیل به شمسی
-  const jDate = jalaali.toJalaali(
-    date.getFullYear(),
-    date.getMonth() + 1,
-    date.getDate()
-  );
+  const date = new Date(nowData);
+  if (isNaN(date)) return "";
 
+  const weekdays = [
+    "یکشنبه",
+    "دوشنبه",
+    "سه‌شنبه",
+    "چهارشنبه",
+    "پنجشنبه",
+    "جمعه",
+    "شنبه",
+  ];
   // گرفتن نام ماه
   const months = [
     "فروردین",
@@ -28,13 +32,22 @@ const convertDateToPersian = (nowData) => {
     "اسفند",
   ];
 
+  // تبدیل به شمسی
+  const jDate = jalaali.toJalaali(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    date.getDate()
+  );
+
   //   const formatted = `${e2p(jDate.jy)} ${months[jDate.jm - 1]}  ${e2p(
   //     jDate.jd
   //   )}`;
-  const sal = e2p(jDate.jy);
-  const mah = months[jDate.jm - 1];
-  const roz = e2p(jDate.jd);
-  return { roz, mah, sal };
+  const dayOfWeek = weekdays[date.getDay()];
+  const year = e2p(jDate.jy);
+  const month = months[jDate.jm - 1];
+  const day = e2p(jDate.jd);
+  // return { roz, mah, sal, dayOfWeek };
+  return `${dayOfWeek} ${day} ${month} ${year}`;
 };
 
 const convertDateEnToDateFa = (nowData) => {

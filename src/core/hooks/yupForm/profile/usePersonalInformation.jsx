@@ -12,10 +12,6 @@ const schema = yup.object({
         .matches(/^\d{10}$/, "کد ملی باید ۱۰ رقم باشد"),
     birthDate: yup.date(),
     gender: yup.string().oneOf(["male", "female"]),
-    // firstName: yup.string(),
-    // gender: yup.string(),
-    // birthDate: yup.date(),
-    // nationalCode: yup.string(),
 });
 
 

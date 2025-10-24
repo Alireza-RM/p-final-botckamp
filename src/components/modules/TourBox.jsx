@@ -1,6 +1,14 @@
+import Image from 'next/image'
+
+import { convertVehicle } from '../../core/utils/convertVehicle'
+import { convertDateToPersian } from "../../core/utils/convertDate"
+import { e2p, sp } from '../../core/utils/replaceNumber'
+import { citysFilterData } from '../../core/constant/citiysData'
+
 import styles from './TourBox.module.css'
 
-function TourBox() {
+function TourBox({ data }) {
+    console.log(data)
     return (
         <div className={styles.box}>
 
@@ -10,24 +18,25 @@ function TourBox() {
                         <div className={styles.success}>به اتمام رسیده</div>
                     </div>
                     <div className={styles.date}>
-                        <div>
-                            <img src="/images/sun-fog.png" alt="logo" />
-                            تور اقلیم کردستان
+                        <div className={styles.imageLogo}>
+                            <Image src="/images/sun-fog.png" width={100} height={100} alt="logo" />
+                            {data?.title}
                         </div>
-                        <div>
-                            <img src="/images/airplane.png" alt="logo" />
-                            سفر با هواپیما
+                        <div className={styles.imageLogo}>
+                            <Image style={{ width: `${data?.fleetVehicle === "Airplane" && "32px"}`, height: `${data?.fleetVehicle === "Airplane" && "30px"}` }}
+                                src={`/images/vehicle/${data?.fleetVehicle}.webp`} width={100} height={100} alt="logo" />
+                            سفر با {convertVehicle(data?.fleetVehicle)}
                         </div>
                     </div>
                 </div>
                 <div className={styles.detailsBox}>
                     <div>
-                        <p>تهران به سلیمانیه </p>
-                        <p><span></span> دوشنبه 15 شهریور 1402</p>
+                        <p>{citysFilterData(+data?.origin?.id)} به {citysFilterData(+data?.destination?.id)} </p>
+                        <p><span></span>{convertDateToPersian(data.startDate)}</p>
                     </div>
                     <div>
                         <p>تاریخ برگشت</p>
-                        <p><span></span>جمعه  19 شهریور 1402</p>
+                        <p><span></span>{convertDateToPersian(data.endDate)}</p>
                     </div>
                 </div>
             </div>
@@ -39,7 +48,7 @@ function TourBox() {
                 </div>
                 <div>
                     <p>مبلغ پرداخت شده</p>
-                    <p>18,000,000 <span>تومان</span> </p>
+                    <p>{e2p(sp(data.price))}  <span>تومان</span> </p>
                 </div>
             </div>
 

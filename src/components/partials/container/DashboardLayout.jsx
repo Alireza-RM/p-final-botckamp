@@ -43,7 +43,7 @@ function DashboardLayout({ children }) {
                         </Link>
                     </div>
                 </div>
-                <div>
+                <div className={styles.tableWrapper}>
                     {children}
                 </div>
             </div>

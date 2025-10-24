@@ -63,10 +63,15 @@
   flex: 1;
 }
 
-.date img {
-  width: 25px;
-  height: 25px;
+
+.date .imageLogo img{
+  /* background-color: blue; */
+  width: 24px;
+  height: 24px;
 }
+
+
+
 
 .detailsBox {
   display: flex;

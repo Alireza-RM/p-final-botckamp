@@ -18,11 +18,21 @@ function UserInformation({ data = {} }) {
 
     const { register, handleSubmit, errors, reset, watch } = useEmailForm()
 
+    useEffect(() => {
+        reset({ email })
+
+    }, [email])
+
     const submitHandler = async (form) => {
 
         if (isPending) return;
 
         const newData = { mobile, ...form }
+
+        if (!newData?.email.trim()) {
+            toast.error("لطفا فیلد لازم رو درست پر کنید")
+            return
+        }
 
         mutate(
             newData,
@@ -39,10 +49,10 @@ function UserInformation({ data = {} }) {
             }
         );
     }
-    useEffect(() => {
-        reset({ email })
+    const onInvalid = () => {
+        toast.error("لطفا فیلد لازم رو درست پر کنید")
+    }
 
-    }, [email])
 
     return (
         <div className={styles.box}>
@@ -69,7 +79,7 @@ function UserInformation({ data = {} }) {
                                 </div>
                             </>
                             :
-                            <form className={styles.emailForm} onSubmit={handleSubmit(submitHandler)}>
+                            <form className={styles.emailForm} onSubmit={handleSubmit(submitHandler, onInvalid)}>
                                 <input {...register("email")} />
                                 <button type='onSubmit'>تایید</button>
                             </form>

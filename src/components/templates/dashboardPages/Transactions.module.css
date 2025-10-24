@@ -1,0 +1,49 @@
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  direction: rtl;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #00000085;
+  font-size: 1.6rem;
+}
+
+.tableContainer::-webkit-scrollbar {
+  height: 8px;
+}
+.tableContainer::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.transactionTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  text-align: center;
+}
+
+.transactionTable th {
+  background-color: #f8f8f8;
+  background-color: var(--backgroundColor-detailsPage);
+  font-weight: 600;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.transactionTable td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+  font-size: 1.4rem;
+}
+
+.transactionTable tr:last-child td {
+  border-bottom: none;
+}
+
+.transactionTable tr:hover {
+  background-color: #fafafa;
+}

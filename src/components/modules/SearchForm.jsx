@@ -8,19 +8,10 @@ import QueryString from "qs";
 import { useRouter } from 'next/router';
 import { flattenObject } from '../../core/utils/helpers';
 import useQuery from '../../core/hooks/queryURL';
+import { citys, citysFilterData } from '../../core/constant/citiysData';
 
 
-const citys = [
-    { name: "تهران", id: 1 },
-    { name: "سنندج", id: 2 },
-    { name: "مادرید", id: 3 },
-    { name: "اصفهان", id: 4 },
-    { name: "سلیمانیه", id: 5 },
-    { name: "هولر", id: 6 },
-    { name: "مازندران", id: 7 },
-    { name: "آفرود", id: 8 },
-    { name: "ایتالیا", id: 9 },
-]
+
 
 
 function SearchForm() {
@@ -57,7 +48,6 @@ function SearchForm() {
         router.push(`/?${query}`);
     }
 
-
     return (
         <form className={styles.searchBox} onSubmit={handleSubmit(submitHandler)}>
 
@@ -68,7 +58,7 @@ function SearchForm() {
                     </span>
                     <p>
                         {
-                            citys.find(i => i.id === +watch("originId"))?.name || "مبدا"
+                            citysFilterData(+watch("originId")) || "مبدا"
                         }
                     </p>
                 </div>
@@ -100,7 +90,7 @@ function SearchForm() {
                     </span>
                     <p>
                         {
-                            citys.find(i => i.id === +watch("destinationId"))?.name || "مقصد"
+                            citysFilterData(+watch("destinationId")) || "مقصد"
                         }
                     </p>
                 </div>

@@ -21,7 +21,6 @@ function InputBox({ data, formInputDescription, register, handleSubmit,
 
         if (isPending) return;
 
-        console.log("first")
 
         let newData = { mobile, ...form }
         if (newData.birthDate) {
@@ -30,6 +29,8 @@ function InputBox({ data, formInputDescription, register, handleSubmit,
                 birthDate: convertDateEnToEn(newData.birthDate)
             }
         }
+
+        if (newData.firstName && !newData.firstName.trim()) return toast.error("لطفا نام کاربری معتبر وارد کنید")
 
         mutate(
             newData,
@@ -46,10 +47,15 @@ function InputBox({ data, formInputDescription, register, handleSubmit,
             }
         );
     }
+    const onInvalid = () => {
+        toast.error("لطفا تمامی فیلد ها رو پر کنید")
+        if (errors?.nationalCode?.message) toast.error(errors?.nationalCode?.message)
+    }
+
 
     return (
         <form className={`${styles.box} ${!btn && styles.borderBox}`}
-            onSubmit={handleSubmit(submitHandler)}>
+            onSubmit={handleSubmit(submitHandler, onInvalid)}>
 
             <div className={styles.title}>
                 <span>

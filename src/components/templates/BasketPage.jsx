@@ -25,7 +25,7 @@ function BasketPage({ data }) {
 
   const { data: basketData, isPending, error, isError } = useGetBasket()
 
-  const { mutate, isPending: isOrderPending } = useSendOrder()
+  const { mutate } = useSendOrder()
 
   const { register, handleSubmit, errors, control, reset, watch } = usePersonalInformation()
 
@@ -55,6 +55,7 @@ function BasketPage({ data }) {
     if (!newData.nationalCode || !newData.gender || !newData.fullName || !newData.birthDate) {
       return toast.error("لطفا تمامی فیلد ها رو کامل کنید")
     }
+
 
     mutate(
       newData,

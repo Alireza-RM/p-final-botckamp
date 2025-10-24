@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
 import api from "../config/api";
-import { useCallback } from "react";
 
 export const useGetUserData = () => {
   const queryFn = () => api.get("/user/profile");
@@ -35,5 +34,12 @@ export const useGetUserTours = () => {
   const queryFn = () => api.get(`/user/tours`);
   const queryKey = ["userTours"];
 
-  return useQuery({ queryFn, queryKey });
+  return useQuery({ queryFn, queryKey, retry: false });
+};
+
+export const useGetTransactions = () => {
+  const queryFn = () => api.get(`/user/transactions`);
+  const queryKey = ["userTransactions"];
+
+  return useQuery({ queryFn, queryKey, retry: false });
 };
