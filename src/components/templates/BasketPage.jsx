@@ -75,7 +75,7 @@ function BasketPage({ data }) {
     <div className={styles.container}>
       <div className={styles.all}>
         <InputBox data={data?.data} title="اطلاعات شخصی" formInputDescription={formInputDescription}
-          register={register} handleSubmit={handleSubmit} errors={errors} control={control} reset={reset} />
+          register={register} handleSubmit={handleSubmit} errors={errors} control={control} watch={watch} reset={reset} />
         <div className={styles.priceBox}>
           <div className={styles.details}>
             <h2>{basketData?.data?.title}</h2>

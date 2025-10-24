@@ -24,8 +24,8 @@ const formInputDescription = [
 
 function Profile() {
 
-    const { register, handleSubmit, errors, control, reset } = usePersonalInformation()
-    const { register: reg2, handleSubmit: handel2, errors: errors2, reset: reset2 } = useBankAccount()
+    const { register, handleSubmit, errors, control, watch, reset } = usePersonalInformation()
+    const { register: reg2, handleSubmit: handel2, errors: errors2, watch: watch2, reset: reset2 } = useBankAccount()
 
 
     const { data, isPending } = useProfileUser()
@@ -56,7 +56,7 @@ function Profile() {
             <UserInformation data={data?.data} />
 
             <DetailsInformation data={data?.data} title="اطلاعات شخصی" formInputDescription={formInputDescription.slice(0, 4)}
-                register={register} handleSubmit={handleSubmit} errors={errors} control={control} reset={reset} >
+                register={register} handleSubmit={handleSubmit} errors={errors} control={control} watch={watch} reset={reset} >
                 <div className={styles.section}>
                     <div className={styles.oneLineDetail}>
                         <div>نام و نام خانوادگی</div>
@@ -80,7 +80,7 @@ function Profile() {
             </DetailsInformation>
 
             <DetailsInformation data={data?.data} title="اطلاعات حساب بانکی" formInputDescription={formInputDescription.slice(4, 7)}
-                register={reg2} handleSubmit={handel2} errors={errors2} control={{}} reset={reset2}>
+                register={reg2} handleSubmit={handel2} errors={errors2} control={{}} watch={watch2} reset={reset2}>
                 <div className={styles.section}>
                     <div className={styles.oneLineDetail}>
                         <div>شماره شبا</div>

@@ -1,7 +1,7 @@
 import jalaali from "jalaali-js";
 import { e2p } from "./replaceNumber";
 
-const convertDateToPersian = (nowData) => {
+const convertDateToPersian = (nowData, withOut = false) => {
   if (!nowData) return "";
 
   const date = new Date(nowData);
@@ -38,16 +38,16 @@ const convertDateToPersian = (nowData) => {
     date.getMonth() + 1,
     date.getDate()
   );
-
-  //   const formatted = `${e2p(jDate.jy)} ${months[jDate.jm - 1]}  ${e2p(
-  //     jDate.jd
-  //   )}`;
   const dayOfWeek = weekdays[date.getDay()];
   const year = e2p(jDate.jy);
   const month = months[jDate.jm - 1];
   const day = e2p(jDate.jd);
-  // return { roz, mah, sal, dayOfWeek };
-  return `${dayOfWeek} ${day} ${month} ${year}`;
+
+  if (withOut) {
+    return { day, month, year };
+  } else {
+    return `${dayOfWeek} ${day} ${month} ${year}`;
+  }
 };
 
 const convertDateEnToDateFa = (nowData) => {

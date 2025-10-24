@@ -1,6 +1,11 @@
 .container {
   padding: 10px 15px;
   border-bottom: 3px solid #00000012;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--background-side);
+  z-index: 40;
 }
 
 .all {
@@ -55,38 +60,56 @@
   cursor: pointer;
 }
 
-.logoLogin img {
+.user .signIn {
+  display: flex;
+  gap: 3px;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  color: var(--color-green-primary);
+}
+.signIn .phone {
+  padding: 5px 10px;
+  width: 160px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+}
+
+.phone .openDrop img {
+  transform: rotate(-180deg);
+}
+.phone span {
+  display: flex;
+  align-items: center;
+}
+.phone span img {
+  width: 16px;
+  height: 16px;
+  /* transition: tr; */
+  transition: transform 0.2s ease-in;
+}
+
+.phone div {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.loginSm span {
+  display: none;
+}
+
+.loginSm span img {
+  width: 24px;
+  height: 24px;
+}
+.loginSm div img {
   width: 40px;
   height: 40px;
 }
 
-.user {
-  display: none;
-}
-
-.user .signIn {
-  display: flex;
-  gap: 3px;
-  padding: 5px 10px;
-  font-size: 1.5rem;
-  border: 2px solid var(--color-green-primary);
-  border-radius: 8px;
-  color: var(--color-green-primary);
-}
-.signIn span {
-  display: flex;
-  align-items: center;
-}
-.signIn span img {
-  width: 16px;
-  height: 16px;
-}
-
-.signIn div {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-}
 
 .signInSm {
   display: flex;
@@ -94,7 +117,7 @@
   gap: 10px;
   font-size: 1.5rem;
   color: var(--color-green-primary);
-  padding: 10px;
+  padding: 10px 25px;
 }
 .signInSm span {
   display: flex;
@@ -105,7 +128,59 @@
   height: 16px;
 }
 
+.dropDownChild {
+  /* background-color: aqua; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  padding: 6px;
+  border-bottom: 2px solid #00000012;
+}
+.dropDownChild p {
+  font-size: 1.2rem;
+}
+.dropDownChild img {
+  width: 18px;
+  height: 18px;
+}
+
+.menuItemFixed {
+  background-color: #f4f4f4;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: default;
+  border-bottom: none;
+  color: var(--color-green-secondary);
+  padding: 10px 0;
+}
+.menuItemFixed p {
+  font-size: 1.4rem ;
+  font-weight: 500;
+}
+
+.avatar_icon {
+  width: 28px;
+  height: 28px;
+  background: #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logout {
+  color: var(--color-logout);
+}
+
 @media (min-width: 768px) {
+  .user .signIn {
+    border: 2px solid var(--color-green-primary);
+  }
+  .signIn .phone {
+    justify-content: center;
+  }
   .navList {
     display: flex;
   }
@@ -116,7 +191,14 @@
   .user {
     display: flex;
   }
-  .logoLogin {
+
+  .loginSm span {
+    display: flex;
+    gap: 5px;
+    padding: 6px 12px;
+    font-weight: 500;
+  }
+  .loginSm div {
     display: none;
   }
 }

@@ -5,9 +5,18 @@ import { convertDateToPersian } from '../../core/utils/convertDate'
 import { useAddBasket } from '../../core/services/mutations'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
+import { difrentDate } from '../../core/utils/difrentTowDate'
+import { convertVehicle } from '../../core/utils/convertVehicle'
+import { citysFilterData } from '../../core/constant/citiysData'
 
-function DetailsTour({ data: { id, title, image, options, origin, destination,
-  price, startDate, endDate, availableSeats, insurance } }) {
+function DetailsTour({ data }) {
+
+  const { id, title, image, options, origin, destination, fleetVehicle,
+    price, startDate, endDate, availableSeats, insurance } = data
+  console.log(data)
+
+  const { day, month, year } = convertDateToPersian(startDate, true)
+  const { day: day2, month: month2, year: year2 } = convertDateToPersian(endDate, true)
 
   const router = useRouter()
 
@@ -41,7 +50,7 @@ function DetailsTour({ data: { id, title, image, options, origin, destination,
           <div className={styles.name}>
             <div className={styles.dates}>
               <h1>تور هولیر</h1>
-              <p>5 روز و 4 شب</p>
+              <p>{difrentDate(startDate, endDate)}</p>
             </div>
             <div className={styles.features}>
               <div className={styles.logoName}>
@@ -75,7 +84,7 @@ function DetailsTour({ data: { id, title, image, options, origin, destination,
                 <p>مبدا</p>
               </div>
               <div>
-                <p>{origin.name}</p>
+                <p>{citysFilterData(+origin.id)}</p>
               </div>
             </div>
             <div>
@@ -85,9 +94,9 @@ function DetailsTour({ data: { id, title, image, options, origin, destination,
               </div>
               <div>
                 <p style={{ display: "flex", flexDirection: "row-reverse", gap: "5px" }}>
-                  <span>{convertDateToPersian(startDate).sal}</span>
-                  <span>{convertDateToPersian(startDate).mah}</span>
-                  <span>{convertDateToPersian(startDate).roz}</span>
+                  <span>{year}</span>
+                  <span>{month}</span>
+                  <span>{day}</span>
                 </p>
 
               </div>
@@ -99,9 +108,9 @@ function DetailsTour({ data: { id, title, image, options, origin, destination,
               </div>
               <div>
                 <p style={{ display: "flex", flexDirection: "row-reverse", gap: "5px" }}>
-                  <span>{convertDateToPersian(endDate).sal}</span>
-                  <span>{convertDateToPersian(endDate).mah}</span>
-                  <span>{convertDateToPersian(endDate).roz}</span>
+                  <span>{year2}</span>
+                  <span>{month2}</span>
+                  <span>{day2}</span>
                 </p>
 
               </div>
@@ -112,7 +121,7 @@ function DetailsTour({ data: { id, title, image, options, origin, destination,
                 <p>حمل و نقل</p>
               </div>
               <div>
-                <p>اتوبوس</p>
+                <p>{convertVehicle(fleetVehicle)}</p>
 
               </div>
             </div>

@@ -1,28 +1,28 @@
 import { useRef, useState } from 'react'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import Image from 'next/image'
 
-import ModalContainer from '../ModalContainer'
 import AuthForm from '../../../templates/authForm/AuthForm'
+import ModalContainer from '../ModalContainer'
+import DropDownMenu from '../DropDownMenu'
+import HamburgerMenu from '../../../modules/HamburgerMenu'
+import { useGetUserData } from '../../../../core/services/queries'
+import { e2p } from '../../../../core/utils/replaceNumber'
 
 import styles from './Header.module.css'
-import { useGetUserData } from '../../../../core/services/queries'
-
-import DropDownMenu from '../DropDownMenu'
-import { e2p } from '../../../../core/utils/replaceNumber'
-import Link from 'next/link'
-import HamburgerMenu from '../../../modules/HamburgerMenu'
 
 function Header() {
+
+    const router = useRouter()
 
     const [isModal, setIsModal] = useState(false)
     const [isHamberOpen, setIsHamberOpen] = useState(false)
     const [open, setOpen] = useState(false);
     const userMenuRef = useRef(null);
 
-
     const { data, isPending } = useGetUserData();
     const { data: userData } = data || {};
-
 
 
     return (
@@ -61,36 +61,50 @@ function Header() {
                             {
                                 userData ?
                                     <div onClick={() => setOpen(p => !p)} style={{ position: "relative" }}>
-                                        <p>{e2p(userData.mobile)}</p>
-                                        <span>
-                                            <Image src="/images/arrow-down.webp" width={100} height={100} alt="arrow-down" />
-                                        </span>
-                                        <DropDownMenu open={open} setOpen={setOpen} ref={userMenuRef} />
+                                        <div className={styles.phone}>
+                                            <p>{e2p(userData.mobile)}</p>
+                                            <span className={`${open ? styles.openDrop : ""}`}>
+                                                <Image src="/images/arrow-down.webp" width={100} height={100} alt="arrow-down" />
+                                            </span>
+                                        </div>
+                                        <DropDownMenu open={open} setOpen={setOpen} ref={userMenuRef} >
+                                            <div className={`${styles.dropDownChild} ${styles.menuItem} ${styles.menuItemFixed}`}>
+                                                <div className={styles.avatar_icon}>
+                                                    <Image src="/images/profile (2).png" width={100} height={100} alt="profile-logo" />
+                                                </div>
+                                                <p>{e2p(userData.mobile)}</p>
+                                            </div>
+                                            <div className={styles.dropDownChild}
+                                                onClick={() => router.push("/dashboard/profile")} >
+                                                <div>
+                                                    <Image src="/images/profile (3).png" width={100} height={100} alt="profile-logo" />
+                                                </div>
+                                                <div >
+                                                    <p>اطلاعات حساب کاربری</p>
+                                                </div>
+                                            </div>
+                                            <div href="#" className={styles.dropDownChild}>
+                                                <div>
+                                                    <Image src="/images/logout.png" width={100} height={100} alt="profile-logo" />
+                                                </div>
+                                                <div className={styles.logout}>
+                                                    <p>اطلاعات حساب کاربری</p>
+                                                </div>
+                                            </div>
+                                        </DropDownMenu>
                                     </div>
                                     :
-                                    <div onClick={() => setIsModal(prev => !prev)}>
+                                    <div className={styles.loginSm} onClick={() => setIsModal(prev => !prev)}>
                                         <span>
                                             <Image src="/images/profile.webp" width={100} height={100} alt="profile" />
+                                            <p>ورود | ثبت نام</p>
                                         </span>
-                                        <p>ورود | ثبت نام</p>
+                                        <div >
+                                            <Image src="/images/signinLogo.webp" width={100} height={100} alt="profile" />
+                                        </div>
                                     </div>
                             }
                         </div>
-                    </div>
-
-                    <div className={styles.logoLogin}  >
-                        {
-                            userData ?
-                                <div className={styles.signInSm}>
-                                    <p>{e2p(userData.mobile)}</p>
-                                    <span>
-                                        <Image src="/images/arrow-down.webp" width={100} height={100} alt="arrow-down" />
-                                    </span>
-                                </div>
-                                :
-                                <Image src="/images/signinLogo.webp" width={100} height={100} alt="profile"
-                                    onClick={() => setIsModal(prev => !prev)} />
-                        }
                     </div>
                 </div>
             </div>

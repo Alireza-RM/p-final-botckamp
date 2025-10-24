@@ -19,9 +19,10 @@ export const useBankAccount = () => {
         handleSubmit,
         formState: { errors },
         reset,
+        watch
     } = useForm({
         resolver: yupResolver(schema),
     });
 
-    return { register, handleSubmit, errors, reset }
+    return { register, handleSubmit, errors, reset, watch }
 }

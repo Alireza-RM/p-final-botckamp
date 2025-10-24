@@ -5,6 +5,7 @@ import DropDownMenu from '../partials/container/DropDownMenu';
 import Card from '../modules/Card';
 import Image from 'next/image';
 import SearchForm from '../modules/SearchForm';
+import SliderSection from '../atoms/SliderSection';
 
 function HomePage({ data }) {
 
@@ -62,6 +63,8 @@ function HomePage({ data }) {
                     </div>
 
                 </div>
+                {/* Slider Section */}
+                <SliderSection />
 
 
                 {/*  */}

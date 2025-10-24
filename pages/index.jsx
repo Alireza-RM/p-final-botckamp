@@ -1,6 +1,7 @@
 import HomePage from "../src/components/templates/HomePage";
 import { serverFetch } from "../src/core/services/http";
 
+
 export default function Home({ data }) {
   return (
     <div>

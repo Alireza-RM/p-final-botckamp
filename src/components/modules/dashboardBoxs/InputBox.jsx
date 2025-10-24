@@ -6,11 +6,12 @@ import api from '../../../core/config/api';
 import { useEditProfile } from '../../../core/services/mutations';
 import toast from 'react-hot-toast';
 import { useQueryClient } from '@tanstack/react-query';
-import { convertDateEnToEn } from '../../../core/utils/convertDate';
+import { convertDateEnToDateFa, convertDateEnToEn } from '../../../core/utils/convertDate';
+import { e2p } from '../../../core/utils/replaceNumber';
 
 
 function InputBox({ data, formInputDescription, register, handleSubmit,
-    errors, control, setOpen = () => { }, title, btn = false }) {
+    errors, control, watch, setOpen = () => { }, title, btn = false }) {
 
     const { mobile } = data || {}
 
@@ -73,19 +74,33 @@ function InputBox({ data, formInputDescription, register, handleSubmit,
 
                     if (fieldName === "birthDate") {
                         return (
-                            // <div  key={i.name}>
-                            <Controller key={i.name}
-                                name="birthDate"
-                                control={control}
-                                render={({ field: { onChange, value } }) => (
-                                    <DatePicker
-                                        value={value}
-                                        onChange={(e) => onChange(e.value)}
-                                        accentColor="#28A745"
-                                    />
-                                )}
-                            />
-                            // </div>
+                            <div key={i.name} className={styles.dateContainer}>
+
+                                <div className={styles.showDate}>
+                                    {watch("birthDate") ?
+                                        <p>{e2p(convertDateEnToDateFa(watch("birthDate")))}</p>
+                                        :
+                                        <div className={styles.div}>
+                                            <span>
+                                                <Image src="/images/calendar.png" width={100} height={100} alt="" />
+                                            </span>
+                                            <p>تاریخ</p>
+                                        </div>
+                                    }
+                                </div>
+                                <Controller
+                                    name="birthDate"
+                                    control={control}
+                                    render={({ field: { onChange, value } }) => (
+                                        <DatePicker
+                                            value={value}
+                                            onChange={(e) => onChange(e.value)}
+                                            accentColor="#28A745"
+                                            inputClass="rr"
+                                        />
+                                    )}
+                                />
+                            </div>
                         )
                     }
 

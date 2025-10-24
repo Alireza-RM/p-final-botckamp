@@ -9,6 +9,10 @@ import { useRouter } from 'next/router';
 import { flattenObject } from '../../core/utils/helpers';
 import useQuery from '../../core/hooks/queryURL';
 import { citys, citysFilterData } from '../../core/constant/citiysData';
+import DatePickerRange from './DatePickerRange';
+import { convertDateEnToDateFa, convertDateEnToEn } from '../../core/utils/convertDate';
+import { date } from 'yup';
+import { e2p } from '../../core/utils/replaceNumber';
 
 
 
@@ -16,35 +20,57 @@ import { citys, citysFilterData } from '../../core/constant/citiysData';
 
 function SearchForm() {
 
+    const { getQuery } = useQuery();
+
     const [openBeginning, setOpenBeginning] = useState(false);
     const [openDestination, setOpenDestination] = useState(false);
-    // const [openDate, setOpenDate] = useState(false);
     const beginningRef = useRef(null);
     const destinationRef = useRef(null);
-    // const dateRef = useRef(null);
 
     const router = useRouter();
 
-    const { register, handleSubmit, control, reset, watch } = useForm();
-    const { getQuery } = useQuery();
-
+    const { handleSubmit, control, reset, watch } = useForm({
+        defaultValues: {
+            date: { from: null, to: null },
+            originId: "",
+            destinationId: "",
+        },
+    });
 
     useEffect(() => {
         const originId = getQuery("originId");
         const destinationId = getQuery("destinationId");
+        const startDate = getQuery("startDate");
+        const endDate = getQuery("endDate");
 
-        if (originId && destinationId) {
-            reset({ originId, destinationId })
-        } else if (originId) {
-            reset({ originId })
-        } else if (destinationId) {
-            reset({ destinationId })
+        if (startDate && endDate) {
+            reset({
+                date: {
+                    from: startDate,
+                    to: endDate,
+                },
+                destinationId,
+                originId,
+            });
+        } else {
+            reset({
+                originId,
+                destinationId,
+            });
         }
-    }, []);
+    }, [router]);
+
 
     const submitHandler = (formData) => {
-        console.log(formData)
-        const query = QueryString.stringify(flattenObject(formData));
+        const newData = {
+            originId: formData.originId,
+            destinationId: formData.destinationId,
+            date: {
+                startDate: formData.date.from,
+                endDate: formData.date.to
+            }
+        }
+        const query = QueryString.stringify(flattenObject(newData));
         router.push(`/?${query}`);
     }
 
@@ -71,7 +97,7 @@ function SearchForm() {
                                 citys.map(i => <div key={i.id} onClick={() => {
                                     onChange(i.id);
                                     setOpenBeginning(false);
-                                }} style={{ borderBottom: "1px solid #000", display: "flex", padding: "10px", cursor: "pointer" }}>
+                                }} style={{ borderBottom: "2px solid #00000012", display: "flex", gap: "5px", padding: "10px", cursor: "pointer" }}>
                                     <Image src="/images/location.png" width={100} height={100} alt="" />
                                     <p>{i.name}</p>
                                 </div>)
@@ -80,8 +106,6 @@ function SearchForm() {
                     )}
                 />
             </div>
-
-
 
             <div className={styles.destination} >
                 <div className={styles.div} onClick={() => setOpenDestination(p => !p)}>
@@ -100,44 +124,35 @@ function SearchForm() {
                     render={({ field: { onChange } }) => (
                         <DropDownMenu open={openDestination} setOpen={setOpenDestination} ref={destinationRef} >
                             {
-                                citys.map(i => <div key={i.id} onClick={() => {
-                                    onChange(i.id);
-                                    setOpenDestination(false);
-                                }} style={{ borderBottom: "1px solid #000", display: "flex", padding: "10px", cursor: "pointer" }}>
-                                    <Image src="/images/location.png" width={100} height={100} alt="" />
-                                    <p>{i.name}</p>
-                                </div>)
+                                citys.map(i =>
+                                    <div key={i.id} onClick={() => {
+                                        onChange(i.id);
+                                        setOpenDestination(false);
+                                    }} style={{ borderBottom: "2px solid #00000012", display: "flex", gap: "5px", padding: "10px", cursor: "pointer" }}>
+                                        <Image src="/images/location.png" width={100} height={100} alt="" />
+                                        <p>{i.name}</p>
+                                    </div>)
                             }
                         </DropDownMenu>
                     )}
                 />
             </div>
 
-
-
-
-
-
             <div className={styles.date}>
-                {/* <div className={styles.div} onClick={() => setOpenDate(p => !p)}>
-
-                    <span>
-                        <Image src="/images/calendar.png" width={100} height={100} alt="" />
-                    </span>
-                    <p>تاریخ</p>
-                </div> */}
-                {/* <DropDownMenu open={openDate} setOpen={setOpenDate} ref={dateRef} /> */}
-                <Controller
-                    control={control}
-                    name="date"
-                    render={({ field: { onChange } }) => (
-                        <DatePicker
-                            onChange={(e) => onChange({ startDate: e.from, endDate: e.to })}
-                            range
-                            accentColor='#28A745'
-                        />
-                    )}
-                />
+                <div className={styles.showDate}>
+                    {watch("date")?.from && watch("date")?.to ?
+                        <p>{e2p(convertDateEnToDateFa(watch("date")?.from))}
+                            &nbsp; - &nbsp; {e2p(convertDateEnToDateFa(watch("date")?.to))}</p>
+                        :
+                        <div className={styles.div}>
+                            <span>
+                                <Image src="/images/calendar.png" width={100} height={100} alt="" />
+                            </span>
+                            <p>تاریخ</p>
+                        </div>
+                    }
+                </div>
+                <DatePickerRange control={control} />
             </div>
 
 
