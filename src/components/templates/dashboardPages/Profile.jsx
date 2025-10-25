@@ -48,7 +48,7 @@ function Profile() {
                 }
             })
         }
-    }, [data]);
+    }, [data, reset, reset2]);
 
 
     return (

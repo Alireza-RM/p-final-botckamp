@@ -21,7 +21,7 @@ function UserInformation({ data = {} }) {
     useEffect(() => {
         reset({ email })
 
-    }, [email])
+    }, [email,reset])
 
     const submitHandler = async (form) => {
 

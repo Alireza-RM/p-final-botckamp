@@ -40,7 +40,7 @@ function BasketPage({ data }) {
         gender: data.data.gender,
       })
     }
-  }, [data]);
+  }, [data,reset]);
 
   if (isPending && !basketData) <Loader />
   if (error?.message === "خطا در دریافت سبد خرید.") return <h1>❌ سبد خرید خالی است ❌</h1>

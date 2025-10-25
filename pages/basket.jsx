@@ -14,13 +14,14 @@ function Basket() {
     const router = useRouter();
 
     const { data, isPending } = useGetUserData();
+    const alldata = !data?.data
 
     useEffect(() => {
         if (!isPending && !data?.data) {
             toast.error("ابتدا وارد حساب کاربریتون شوید")
             router.push("/");
         }
-    }, [isPending]);
+    }, [isPending, alldata, router]);
 
     if (isPending) return <Loader />
 

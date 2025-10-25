@@ -32,6 +32,7 @@ function AuthForm({ setIsModal }) {
                     console.log(data)
                 },
                 onError: (error) => {
+                    toast.error("مشکلی در ارسال اطلاعات پیش آمده است")
                     console.log(error);
                 },
             }

@@ -6,7 +6,8 @@ class MyDocument extends Document {
       <Html lang="fa" dir="rtl">
         <Head>
           <meta name="author" content="Alireza Alaei" />
-          {/* <title>Torino app</title> */}
+          {/* <link rel="icon" href="/favicon.ico" /> */}
+          <title>تورینو | رزرو تور و سفر</title>
         </Head>
         <body>
           <Main />
