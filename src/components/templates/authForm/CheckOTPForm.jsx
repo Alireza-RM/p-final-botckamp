@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
 import OTPInput from 'react-otp-input';
@@ -6,14 +7,32 @@ import { Controller } from "react-hook-form";
 import { useCheckOtp } from '../../../core/services/mutations';
 import { useOtpForm } from '../../../core/hooks/yupForm/useOtpForm';
 
+import { formatTime } from '../../../core/utils/formatTime';
+
 import styles from './CheckOTPForm.module.css'
 
-function CheckOTPForm({ watch, setStep, setIsModal }) {
+function CheckOTPForm({ watch, setStep, setIsModal, submitHandler: resendCode }) {
 
     const { isPending, mutate } = useCheckOtp();
 
     const { control, handleSubmit, errors } = useOtpForm();
-    
+
+    const [timeLeft, setTimeLeft] = useState(90); // 1 دقیقه و 30 ثانیه
+    const [isResendAvailable, setIsResendAvailable] = useState(false);
+
+    useEffect(() => {
+        if (timeLeft <= 0) {
+            setIsResendAvailable(true);
+            return;
+        }
+
+        const timer = setInterval(() => {
+            setTimeLeft((prev) => prev - 1);
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [timeLeft]);
+
     const submitHandler = ({ code }) => {
 
         if (isPending) return;
@@ -72,7 +91,25 @@ function CheckOTPForm({ watch, setStep, setIsModal }) {
                             />
                         )}
                     />
-                    <p>1:25 تا ارسال مجدد کد</p>
+
+
+                    {!isResendAvailable ? (
+                        <p>{formatTime(timeLeft)} تا ارسال مجدد کد</p>
+                    ) : (
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setTimeLeft(90)
+                                setIsResendAvailable(false)
+                                resendCode()
+                            }}
+                            className={styles.resendButton}
+                        >
+                            ارسال مجدد کد
+                        </button>
+                    )}
+
+
                     {
                         <p className={styles.error} style={{ visibility: `${errors.code && errors ? "visible" : null}` }}>
                             {errors.code?.message} &nbsp;

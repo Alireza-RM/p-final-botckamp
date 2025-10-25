@@ -80,6 +80,19 @@
   visibility: hidden;
 }
 
+.resendButton {
+  background: none;
+  border: none;
+  color: #28a745;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.resendButton:hover {
+  text-decoration: underline;
+}
+
 @media (min-width: 768px) {
   .otpInput {
     font-size: 2rem;

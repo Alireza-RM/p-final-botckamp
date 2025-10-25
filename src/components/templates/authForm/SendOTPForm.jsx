@@ -1,35 +1,8 @@
 import Image from 'next/image'
-import toast from 'react-hot-toast'
-
-import { useSendOtp } from '../../../core/services/mutations'
 
 import styles from './SendOTPForm.module.css'
 
-function SendOTPForm({ register, handleSubmit, errors, setStep, setIsModal }) {
-
-    const { mutate, isPending } = useSendOtp()
-
-
-    const submitHandler = ({ mobile }) => {
-
-        if (isPending) return;
-
-        mutate(
-            { mobile },
-            {
-                onSuccess: (data) => {
-                    toast.success(data?.data?.message);
-                    toast(data?.data?.code);
-                    setStep(2);
-                    console.log(data)
-                },
-                onError: (error) => {
-                    console.log(error);
-                },
-            }
-        );
-    }
-
+function SendOTPForm({ register, handleSubmit, errors, setStep, setIsModal, submitHandler }) {
 
 
     return (
