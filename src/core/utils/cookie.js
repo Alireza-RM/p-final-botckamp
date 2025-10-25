@@ -13,5 +13,14 @@ function getCookie(name) {
   const parts = value?.split(`; ${name}=`);
   if (parts?.length === 2) return parts?.pop()?.split(";")?.shift();
 }
+function clearAllCookies() {
+  const cookies = document.cookie.split(";");
 
-export { setCookie, getCookie };
+  for (const cookie of cookies) {
+    const eqPos = cookie.indexOf("=");
+    const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+  }
+}
+
+export { setCookie, getCookie, clearAllCookies };

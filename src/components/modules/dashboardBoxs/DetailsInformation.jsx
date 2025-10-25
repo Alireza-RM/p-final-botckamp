@@ -2,6 +2,7 @@ import { useState } from 'react'
 import InputBox from './InputBox'
 
 import styles from './DetailsInformation.module.css'
+import Image from 'next/image'
 
 
 function DetailsInformation({ data, title, formInputDescription, register, handleSubmit, errors, control, watch, children }) {
@@ -15,7 +16,7 @@ function DetailsInformation({ data, title, formInputDescription, register, handl
                         <div className={styles.title} onClick={() => setOpen(p => !p)}>
                             <p>{title}</p>
                             <div className={styles.editButton} >
-                                <img src="/images/edit-2.png" alt="" />
+                                <Image src="/images/edit-2.png" width={100} height={100} alt="logo"/>
                                 <p>ویرایش اطلاعات</p>
                             </div>
                         </div>

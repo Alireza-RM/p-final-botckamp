@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  height: 100%;
+}
+.container p {
+  font-size: 2rem;
+}
+
+.container div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 80%;
+}
+
+
+
+.buttons {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.buttons button {
+  flex: 1;
+  padding: 8px 40px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: var(--background-side);
+  background-color: var(--color-green-primary);
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.buttons :first-child:hover {
+  background-color: #1f6f31;
+}
+
+.buttons :last-child {
+  color: var(--color-green-primary);
+  background-color: var(--background-side);
+  border: 3px solid var(--color-green-primary);
+}
+
+.buttons :last-child:hover {
+  background-color: var(--color-green-primary);
+  color: var(--background-side);
+  /* border-color: var(--background-side); */
+}

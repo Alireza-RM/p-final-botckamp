@@ -55,7 +55,7 @@ function InputBox({ data, formInputDescription, register, handleSubmit,
             }
         );
     }
-    const onInvalid = () => {
+    const onInvalid = (data) => {
         toast.error("لطفا تمامی فیلد ها رو پر کنید")
         if (errors?.nationalCode?.message) toast.error(errors?.nationalCode?.message)
     }
@@ -91,7 +91,7 @@ function InputBox({ data, formInputDescription, register, handleSubmit,
                                             <span>
                                                 <Image src="/images/calendar.png" width={100} height={100} alt="" />
                                             </span>
-                                            <p>تاریخ</p>
+                                            <p>تاریخ تولد</p>
                                         </div>
                                     }
                                 </div>
@@ -118,7 +118,7 @@ function InputBox({ data, formInputDescription, register, handleSubmit,
                                     <p>
                                         {console.log(watch("gender"))}
                                         {/* {watch("gender") && watch(("gender") == "male" ? "مرد" : "زن")} */}
-                                        {watch("gender") && watch("gender") === "female" ? "زن" : "مرد"}
+                                        {watch("gender") ? watch("gender") === "female" ? "زن" : "مرد" : ""}
                                     </p>
                                     <span>
                                         <Image src="/images/arrow-down-black.webp" width={20} height={20} alt="" />

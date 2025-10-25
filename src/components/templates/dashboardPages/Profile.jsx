@@ -35,16 +35,16 @@ function Profile() {
         if (data) {
             console.log(data.data);
             reset({
-                firstName: data.data.firstName,
-                nationalCode: data.data.nationalCode,
-                birthDate: data.data.birthDate,
-                gender: data.data.gender,
+                firstName: data?.data?.firstName,
+                nationalCode: data?.data?.nationalCode,
+                birthDate: data?.data?.birthDate,
+                gender: data?.data?.gender,
             })
             reset2({
                 payment: {
-                    shaba_code: data.data.payment.shaba_code,
-                    debitCard_code: data.data.payment.debitCard_code,
-                    accountIdentifier: data.data.payment.accountIdentifier,
+                    shaba_code: data?.data?.payment?.shaba_code,
+                    debitCard_code: data?.data?.payment?.debitCard_code,
+                    accountIdentifier: data?.data?.payment?.accountIdentifier,
                 }
             })
         }

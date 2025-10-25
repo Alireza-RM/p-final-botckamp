@@ -12,9 +12,7 @@ function Card({ data }) {
     return (
         <div className={styles.card} onClick={() => router.push(`/tour/${id}`)}>
             <div className={styles.image}>
-                {/* <img src="/images/tour-1.png" alt="تور" /> */}
                 <Image src={image} width={1000} height={1000} alt="تور" />
-                {/* <img src="/images/tour.png" alt="تور" /> */}
             </div>
             <div className={styles.name}>
                 <h2>{title}</h2>

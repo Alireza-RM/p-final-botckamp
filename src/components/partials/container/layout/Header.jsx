@@ -11,12 +11,14 @@ import { useGetUserData } from '../../../../core/services/queries'
 import { e2p } from '../../../../core/utils/replaceNumber'
 
 import styles from './Header.module.css'
+import LogoutModal from '../../../atoms/LogoutModal'
 
 function Header() {
 
     const router = useRouter()
 
     const [isModal, setIsModal] = useState(false)
+    const [isLogoutModal, setIsLogoutModal] = useState(false)
     const [isHamberOpen, setIsHamberOpen] = useState(false)
     const [open, setOpen] = useState(false);
     const userMenuRef = useRef(null);
@@ -83,12 +85,12 @@ function Header() {
                                                     <p>اطلاعات حساب کاربری</p>
                                                 </div>
                                             </div>
-                                            <div href="#" className={styles.dropDownChild}>
+                                            <div className={styles.dropDownChild} onClick={() => setIsLogoutModal(p => !p)}>
                                                 <div>
                                                     <Image src="/images/logout.png" width={100} height={100} alt="profile-logo" />
                                                 </div>
                                                 <div className={styles.logout}>
-                                                    <p>اطلاعات حساب کاربری</p>
+                                                    <p>خروج از حساب کاربری</p>
                                                 </div>
                                             </div>
                                         </DropDownMenu>
@@ -111,6 +113,11 @@ function Header() {
             {isModal &&
                 <ModalContainer setIsModal={setIsModal}>
                     <AuthForm setIsModal={setIsModal} />
+                </ModalContainer>
+            }
+            {isLogoutModal &&
+                <ModalContainer setIsModal={setIsLogoutModal}>
+                    <LogoutModal setIsModal={setIsLogoutModal} />
                 </ModalContainer>
             }
             <HamburgerMenu className={styles.hamberMenu} isHamberOpen={isHamberOpen} setIsHamberOpen={setIsHamberOpen} />

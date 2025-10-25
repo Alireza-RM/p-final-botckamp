@@ -29,13 +29,7 @@ function SearchForm() {
 
     const router = useRouter();
 
-    const { handleSubmit, control, reset, watch } = useForm({
-        defaultValues: {
-            date: { from: null, to: null },
-            originId: "",
-            destinationId: "",
-        },
-    });
+    const { handleSubmit, control, reset, watch } = useForm();
 
     useEffect(() => {
         const originId = getQuery("originId");
@@ -62,14 +56,28 @@ function SearchForm() {
 
 
     const submitHandler = (formData) => {
-        const newData = {
-            originId: formData.originId,
-            destinationId: formData.destinationId,
-            date: {
-                startDate: formData.date.from,
-                endDate: formData.date.to
+        let newData;
+        if (formData?.date?.from && formData?.date?.to) {
+            newData = {
+                date: {
+                    startDate: formData.date.from,
+                    endDate: formData.date.to
+                }
             }
         }
+        if (formData?.originId) {
+            newData = {
+                ...newData,
+                originId: formData.originId,
+            }
+        }
+        if (formData?.destinationId) {
+            newData = {
+                ...newData,
+                destinationId: formData.destinationId,
+            }
+        }
+        if (!newData) return
         const query = QueryString.stringify(flattenObject(newData));
         router.push(`/?${query}`);
     }

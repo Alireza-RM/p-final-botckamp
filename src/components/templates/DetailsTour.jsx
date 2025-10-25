@@ -80,7 +80,7 @@ function DetailsTour({ data }) {
           <div className={styles.allDetails}>
             <div style={{ border: "none" }}>
               <div className={styles.logoName} >
-                <img src="/images/logosDetailsPage/routing-2.png" alt="logo" />
+                <Image src="/images/logosDetailsPage/routing-2.png" width={100} height={100} alt="logo" />
                 <p>مبدا</p>
               </div>
               <div>
@@ -89,7 +89,7 @@ function DetailsTour({ data }) {
             </div>
             <div>
               <div className={styles.logoName}>
-                <img src="/images/logosDetailsPage/calendar (2).png" alt="logo" />
+                <Image src="/images/logosDetailsPage/calendar (2).png" width={100} height={100} alt="logo" />
                 <p>تاریخ رفت</p>
               </div>
               <div>
@@ -103,7 +103,7 @@ function DetailsTour({ data }) {
             </div>
             <div>
               <div className={styles.logoName}>
-                <img src="/images/logosDetailsPage/calendar (2).png" alt="logo" />
+                <Image src="/images/logosDetailsPage/calendar (2).png" width={100} height={100} alt="logo" />
                 <p>تاریخ </p>
               </div>
               <div>
@@ -117,7 +117,7 @@ function DetailsTour({ data }) {
             </div>
             <div>
               <div className={styles.logoName}>
-                <img src="/images/logosDetailsPage/bus.png" alt="logo" />
+                <Image src="/images/logosDetailsPage/bus.png" width={100} height={100} alt="logo" />
                 <p>حمل و نقل</p>
               </div>
               <div>
@@ -127,7 +127,7 @@ function DetailsTour({ data }) {
             </div>
             <div>
               <div className={styles.logoName}>
-                <img src="/images/logosDetailsPage/profile-2user.png" alt="logo" />
+                <Image src="/images/logosDetailsPage/profile-2user.png" width={100} height={100} alt="logo" />
                 <p>ظرفیت</p>
               </div>
               <div>
@@ -137,7 +137,7 @@ function DetailsTour({ data }) {
             </div>
             <div>
               <div className={styles.logoName}>
-                <img src="/images/logosDetailsPage/security.png" alt="logo" />
+                <Image src="/images/logosDetailsPage/security.png" width={100} height={100} alt="logo" />
                 <p>بیمه</p>
               </div>
               <div>

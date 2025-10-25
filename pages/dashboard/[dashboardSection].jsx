@@ -5,7 +5,7 @@ import Profile from '../../src/components/templates/dashboardPages/Profile'
 import UserTours from '../../src/components/templates/dashboardPages/UserTours'
 import Transactions from '../../src/components/templates/dashboardPages/Transactions'
 
-function profileSection() {
+function ProfileSection() {
     const router = useRouter()
     const { dashboardSection } = router.query
     
@@ -20,4 +20,4 @@ function profileSection() {
     )
 }
 
-export default profileSection
+export default ProfileSection
