@@ -2,6 +2,7 @@ import { useGetTransactions } from "../../../core/services/queries";
 import { convertDateEnToDateFa } from "../../../core/utils/convertDate";
 import { formatTime } from "../../../core/utils/convertTime";
 import { e2p, sp } from "../../../core/utils/replaceNumber";
+import Loader from "../../atoms/Loader";
 
 import styles from "./Transactions.module.css"
 
@@ -11,7 +12,7 @@ function Transactions() {
   const { data, status } = transactionsData || {}
   console.log(data)
 
-  if (isPending) return <h1>Loading ...</h1>
+  if (isPending) return <Loader />
   if (status !== 200) return <h1>Error ...</h1>
   if (data.length === 0) return <h1>هیچ تراکنشی وجود ندارد</h1>
 

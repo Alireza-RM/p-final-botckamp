@@ -28,9 +28,6 @@
   border: 2px solid #00000012;
   border-radius: 12px;
   padding: 8px;
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: start; */
   gap: 5px;
   font-size: 1.6rem;
 }

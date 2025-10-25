@@ -9,6 +9,7 @@ import { convertDateEnToEn } from '../../core/utils/convertDate'
 import { useSendOrder } from '../../core/services/mutations'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
+import Loader from '../atoms/Loader'
 
 
 const formInputDescription = [
@@ -41,7 +42,7 @@ function BasketPage({ data }) {
     }
   }, [data]);
 
-  if (isPending && !basketData) <h1>Loading ...</h1>
+  if (isPending && !basketData) <Loader />
   if (error?.message === "خطا در دریافت سبد خرید.") return <h1>❌ سبد خرید خالی است ❌</h1>
   if (isError && error?.message !== "خطا در دریافت سبد خرید.") return <h1>❌ خطا در گرفتن دیتا ❌</h1>
 

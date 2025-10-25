@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useGetUserData } from "../../../core/services/queries";
+import Loader from "../../atoms/Loader";
 
 function AuthProvider({ children }) {
     const router = useRouter();
@@ -11,7 +12,7 @@ function AuthProvider({ children }) {
         if (!isPending && !data?.data) router.push("/");
     }, [isPending]);
 
-    if (isPending) return <p>Loading</p>;
+    if (isPending) return <Loader />
 
     return <>{children}</>;
 }

@@ -3,6 +3,7 @@ import { useGetBasket, useGetUserData } from "../src/core/services/queries"
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 import BasketPage from "../src/components/templates/BasketPage";
+import Loader from "../src/components/atoms/Loader";
 
 
 function Basket() {
@@ -21,7 +22,7 @@ function Basket() {
         }
     }, [isPending]);
 
-    if (isPending) return <p>Loading</p>;
+    if (isPending) return <Loader />
 
     return (
         <>

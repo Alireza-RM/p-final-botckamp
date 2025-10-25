@@ -1,7 +1,10 @@
+import NoConnection from "../src/components/partials/container/NoCoonectio"
 
 function NotFound() {
     return (
-        <div>NotFound ... 404</div>
+        <div>
+            <NoConnection notFound={true} />
+        </div>
     )
 }
 

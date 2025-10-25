@@ -38,8 +38,9 @@ function HomePage({ data }) {
                     <h2>همه تورها </h2>
                 </div>
                 {/* //card */}
+                {data.length === 0 && <p className={styles.withoutData}>😞  هیچ توری با این مشخصات وجود ندارد 😞</p>}
                 <div className={styles.cards}>
-                    {data.map(i => <Card key={i.id} data={i} />)}
+                    {data && data?.map(i => <Card key={i.id} data={i} />)}
                 </div>
                 {/* //person Number */}
                 <div className={styles.info}>
@@ -65,7 +66,6 @@ function HomePage({ data }) {
                 </div>
                 {/* Slider Section */}
                 <SliderSection />
-
 
                 {/*  */}
                 <div className={styles.footerDetails}>

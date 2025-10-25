@@ -15,7 +15,13 @@ export async function getServerSideProps(context) {
   const { query } = context
   const data = await serverFetch("/tour", query)
 
+  if (data === false) {
+    return {
+      redirect: { destination: "/offline" }
+    }
+  }
+
   return {
-    props: { data }
+    props: { data },
   }
 }

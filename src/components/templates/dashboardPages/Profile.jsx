@@ -70,7 +70,7 @@ function Profile() {
                 <div className={styles.section}>
                     <div className={styles.oneLineDetail}>
                         <div>جنسیت</div>
-                        <div>زن</div>
+                        <div>{watch("gender") && watch("gender") === "female" ? "زن" : "مرد"}</div>
                     </div>
                     <div className={styles.oneLineDetail}>
                         <div>تاریخ تولد</div>
