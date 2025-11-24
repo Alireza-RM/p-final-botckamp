@@ -1,7 +1,7 @@
 # 🧭 Torino — Online Tour & Hotel Booking Platform
 
 <p align="center">
-  <img src="/readmeImages/demo1.png" width="700" />
+  <img src="/public/readmeImages/demo1.png" width="700" />
 </p>
 
 <p align="center">
