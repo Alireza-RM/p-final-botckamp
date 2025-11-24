@@ -1,7 +1,7 @@
 # 🧭 Torino — Online Tour & Hotel Booking Platform
 
 <p align="center">
-  <img src="/public/readmeImages/demo1.png" width="700" />
+  <img src="/public/readmeImages/demoLogo.png" width="700" />
 </p>
 
 <p align="center">
@@ -13,6 +13,7 @@
 ## 📌 فهرست مطالب
 
 * [✨ ویژگی‌ها](#-ویژگی‌ها)
+* [🎥 دموی پروژه](#-دموی پروژه)
 * [🚀 تکنولوژی‌ها](#-تکنولوژی‌ها)
 * [📁 ساختار پروژه](#-ساختار-پروژه)
 * [🛠 نصب و اجرا (Front-end)](#-نصب-و-اجرا-front-end)
@@ -32,6 +33,16 @@
 
 ---
 
+
+## 🎥 دموی پروژه
+
+<p align="center">
+  <img src="/public/readmeImages/demo1.png" width="700"/>
+  <img src="/public/readmeImages/demo2.png" width="700"/>
+  <img src="/public/readmeImages/demo3.png" width="700"/>
+</p>
+
+---
 
 ## 🚀 تکنولوژی‌ها
 
