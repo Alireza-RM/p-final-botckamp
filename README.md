@@ -1,34 +1,114 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧭 Torino — Online Tour & Hotel Booking Platform
 
-## Getting Started
+<p align="center">
+  <img src="/readmeImages/demo1.png" width="700" />
+</p>
 
-First, run the development server:
+<p align="center">
+  <b>Torino</b> یک پلتفرم رزرو آنلاین تور و هتل است که تجربه‌ای سریع، روان و حرفه‌ای را برای کاربران فراهم می‌کند.
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
+---
+
+## 📌 فهرست مطالب
+
+* [✨ ویژگی‌ها](#-ویژگی‌ها)
+* [🎥 دموی پروژه](#-دموی-پروژه)
+* [🚀 تکنولوژی‌ها](#-تکنولوژی‌ها)
+* [📁 ساختار پروژه](#-ساختار-پروژه)
+* [🛠 نصب و اجرا (Front-end)](#-نصب-و-اجرا-front-end)
+* [🛠 نصب و اجرا (Back-end)](#-نصب-و-اجرا-back-end)
+* [📞 ارتباط با من](#-ارتباط-با-من)
+
+---
+
+## ✨ ویژگی‌ها
+
+* 🔐 **احراز هویت JWT** + ذخیره امن کوکی
+* 🔍 **جستجوی پیشرفته تورها** با فیلترهای متنوع
+* 🧳 **داشبورد کامل کاربر** (رزروها، تراکنش‌ها، تاریخچه)
+* 📅 **جزئیات کامل تورها** + امکان رزرو سریع
+* 🌙 **UI مدرن و کاملاً ریسپانسیو**
+* ⚡ عملکرد سریع و بهینه
+
+---
+
+## 🎥 دموی پروژه
+
+<p align="center">
+  <img src="/readmeImages/demo1.png" width="600"/>
+  <img src="/readmeImages/demo2.png" width="600"/>
+  <img src="/readmeImages/demo3.png" width="600"/>
+</p>
+
+---
+
+## 🚀 تکنولوژی‌ها
+
+### ⚙️ Front-end
+
+| تکنولوژی         | توضیح                   |
+| ---------------- | ----------------------- |
+| **Next.js**      | فریم‌ورک قدرتمند React  |
+| **Tailwind CSS** | استایل‌دهی سریع و بهینه |
+
+### 🗄 Back-end & Database
+
+| تکنولوژی     | توضیح                 |
+| ------------ | --------------------- |
+| **MongoDB**  | دیتابیس NoSQL قدرتمند |
+| **JWT Auth** | سیستم احراز هویت امن  |
+
+---
+
+## 📁 ساختار پروژه
+
+```
+src/
+ ┣ components/
+ ┃ ┣ atoms        # اجزای پایه
+ ┃ ┣ modules      # بخش‌های مستقل
+ ┃ ┣ partials     # اجزای کوچک‌تر UI
+ ┃ ┗ templates    # قالب‌های کامل صفحات
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 🛠 نصب و اجرا (Front-end)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```bash
+git clone https://github.com/Alireza-RM/p-final-botckamp.git
+cd p-final-botckamp
+npm install
+npm run dev
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+برای ساخت نسخه Production:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠 نصب و اجرا (Back-end)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+git clone https://github.com/Alireza-RM/backend-torino.git
+cd backend-torino
+npm install
+npm start
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📞 ارتباط با من
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* 📩 ایمیل: **[alaei20ali@gmail.com](mailto:alaei20ali@gmail.com)**
+* 📞 تلفن: **09123395937**
+
+---
+
+<p align="center">
+  ساخته شده با ❤️ توسط <b>Alireza RM</b>
+</p>
